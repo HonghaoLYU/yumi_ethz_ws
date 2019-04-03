@@ -1,0 +1,276 @@
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/led_flasher.hpp:14:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/led_flasher.cpp:12[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/led_flasher.hpp:14:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/led_flasher.cpp:12[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/corner_mt9v034.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/corner_mt9v034.cpp:36[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/camera_tau640.hpp:40:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/camera_tau640.cpp:38[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/dense_matcher.hpp:38:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/visensor_impl.cpp:42[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/dense_matcher.hpp:38:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/visensor_impl.cpp:42[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/sensor_factory.cpp:45:0[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:66:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_0", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b1);
+[01;32m[K                                                                                                                        ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:67:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_1", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b10);
+[01;32m[K                                                                                                                        ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:68:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_2", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b100);
+[01;32m[K                                                                                                                        ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/sensor_factory.cpp:45:0[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:78:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_0_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b1); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:79:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_1_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b10); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:80:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_2_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b100); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/external_trigger.cpp:38:0[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:66:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_0", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b1);
+[01;32m[K                                                                                                                        ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:67:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_1", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b10);
+[01;32m[K                                                                                                                        ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:68:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_2", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b100);
+[01;32m[K                                                                                                                        ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/external_trigger.cpp:38:0[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:78:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_0_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b1); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:79:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_1_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b10); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:80:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_2_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b100); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/camera_mt9v034.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/sensor_factory.cpp:38[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/external_trigger.cpp:38[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/imu_mpu9150.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/imu_mpu9150.cpp:36[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/camera_tau640.hpp:40:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/camera_tau640.cpp:38[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/sensor_factory.cpp:45:0[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:66:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_0", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b1);
+[01;32m[K                                                                                                                        ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:67:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_1", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b10);
+[01;32m[K                                                                                                                        ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:68:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_2", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b100);
+[01;32m[K                                                                                                                        ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/sensor_factory.cpp:45:0[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:78:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_0_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b1); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:79:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_1_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b10); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:80:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_2_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b100); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/external_trigger.cpp:38:0[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:66:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_0", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b1);
+[01;32m[K                                                                                                                        ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:67:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_1", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b10);
+[01;32m[K                                                                                                                        ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:68:120:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("enable_trigger_2", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_CONTROL, 0, 0b100);
+[01;32m[K                                                                                                                        ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/external_trigger.cpp:38:0[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:78:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_0_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b1); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:79:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_1_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b10); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:80:125:[m[K [01;35m[Kwarning: [m[Kbinary constants are a C++14 feature or GCC extension
+     param_server_.addParam("trigger_2_direction", param_server::BOOL_T, ExternalTriggerDefaults::R_EX_TRIGGER_DIRECTION, 0, 0b100); //0 is output, 1 is input
+[01;32m[K                                                                                                                             ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/camera_mt9v034.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/camera_mt9v034.cpp:36[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/dense_matcher.hpp:38:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/dense_matcher.cpp:36[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/corner_mt9v034.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/corner_mt9v034.cpp:36[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/camera_mt9v034.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/sensor_factory.cpp:38[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/external_trigger.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/external_trigger.cpp:38[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/imu_mpu9150.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/imu_mpu9150.cpp:36[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/helpers/stereo_homography.cpp:[m[K In member function ‘[01m[Kvoid StereoHomography::getHomography(Eigen::Matrix3d&, Eigen::Matrix3d&, double&, Eigen::Vector2d&, Eigen::Vector2d&)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/helpers/stereo_homography.cpp:185:19:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kom_new[m[K’ set but not used [-Wunused-but-set-variable]
+   Eigen::Vector3d om_new = Eigen::Vector3d::Zero();
+[01;32m[K                   ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/helpers/stereo_homography.cpp:186:19:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KT_new[m[K’ set but not used [-Wunused-but-set-variable]
+   Eigen::Vector3d T_new = R_1 * T;
+[01;32m[K                   ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/dense_matcher.hpp:38:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/dense_matcher.cpp:36[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/camera_mt9v034.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/visensor_impl.hpp:51[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/visensor/visensor_api.cpp:33[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/camera_mt9v034.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/sensors/camera_mt9v034.cpp:36[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/helpers/stereo_homography.cpp:[m[K In member function ‘[01m[Kvoid StereoHomography::getHomography(Eigen::Matrix3d&, Eigen::Matrix3d&, double&, Eigen::Vector2d&, Eigen::Vector2d&)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/helpers/stereo_homography.cpp:185:19:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kom_new[m[K’ set but not used [-Wunused-but-set-variable]
+   Eigen::Vector3d om_new = Eigen::Vector3d::Zero();
+[01;32m[K                   ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/helpers/stereo_homography.cpp:186:19:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KT_new[m[K’ set but not used [-Wunused-but-set-variable]
+   Eigen::Vector3d T_new = R_1 * T;
+[01;32m[K                   ^[m[K
+In file included from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/sensors/camera_mt9v034.hpp:39:0[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/visensor_impl.hpp:51[m[K,
+                 from [01m[K/home/yumi/yumi_ws/src/libvisensor_devel/src/visensor/visensor_api.cpp:33[m[K:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:[m[K In constructor ‘[01m[Kparam_server::ParamItemInt::ParamItemInt(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t)[m[K’:
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:214:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (minVal < min_)
+[01;32m[K                ^[m[K
+[01m[K/home/yumi/yumi_ws/src/libvisensor_devel/include/networking/param_server.hpp:218:16:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (maxVal > max_)
+[01;32m[K                ^[m[K

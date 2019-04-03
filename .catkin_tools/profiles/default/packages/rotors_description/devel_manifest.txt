@@ -1,0 +1,4 @@
+rotors_simulator/rotors_description
+/home/yumi/yumi_ws/devel/.private/rotors_description/share/rotors_description/cmake/rotors_descriptionConfig-version.cmake /home/yumi/yumi_ws/devel/share/rotors_description/cmake/rotors_descriptionConfig-version.cmake
+/home/yumi/yumi_ws/devel/.private/rotors_description/share/rotors_description/cmake/rotors_descriptionConfig.cmake /home/yumi/yumi_ws/devel/share/rotors_description/cmake/rotors_descriptionConfig.cmake
+/home/yumi/yumi_ws/devel/.private/rotors_description/lib/pkgconfig/rotors_description.pc /home/yumi/yumi_ws/devel/lib/pkgconfig/rotors_description.pc

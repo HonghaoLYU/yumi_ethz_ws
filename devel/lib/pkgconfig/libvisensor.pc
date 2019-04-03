@@ -1,0 +1,8 @@
+prefix=/home/yumi/yumi_ws/devel
+
+Name: libvisensor
+Description: Description of libvisensor
+Version: 1.1.0
+Cflags: -I/home/yumi/yumi_ws/src/libvisensor_devel/include
+Libs: -L/home/yumi/yumi_ws/devel/lib -lvisensor
+Requires: 

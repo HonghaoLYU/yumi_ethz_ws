@@ -1,0 +1,8 @@
+prefix=/home/yumi/yumi_ws/devel
+
+Name: yumi_scripts
+Description: Description of yumi_scripts
+Version: 0.2.0
+Cflags: -I/home/yumi/yumi_ws/devel/include
+Libs: -L/home/yumi/yumi_ws/devel/lib 
+Requires: message_runtime

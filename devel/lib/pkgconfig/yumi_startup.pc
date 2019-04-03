@@ -1,0 +1,8 @@
+prefix=/home/yumi/yumi_ws/devel
+
+Name: yumi_startup
+Description: Description of yumi_startup
+Version: 0.0.1
+Cflags: 
+Libs: -L/home/yumi/yumi_ws/devel/lib 
+Requires: 

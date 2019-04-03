@@ -1,0 +1,6 @@
+libvisensor_devel
+/home/yumi/yumi_ws/devel/.private/libvisensor/share/libvisensor/cmake/libvisensorConfig-version.cmake /home/yumi/yumi_ws/devel/share/libvisensor/cmake/libvisensorConfig-version.cmake
+/home/yumi/yumi_ws/devel/.private/libvisensor/share/libvisensor/cmake/libvisensorConfig.cmake /home/yumi/yumi_ws/devel/share/libvisensor/cmake/libvisensorConfig.cmake
+/home/yumi/yumi_ws/devel/.private/libvisensor/lib/libvisensor.so /home/yumi/yumi_ws/devel/lib/libvisensor.so
+/home/yumi/yumi_ws/devel/.private/libvisensor/lib/libvisensor.a /home/yumi/yumi_ws/devel/lib/libvisensor.a
+/home/yumi/yumi_ws/devel/.private/libvisensor/lib/pkgconfig/libvisensor.pc /home/yumi/yumi_ws/devel/lib/pkgconfig/libvisensor.pc

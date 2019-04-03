@@ -1,0 +1,4 @@
+industrial_driver/industrial_deprecated
+/home/yumi/yumi_ws/devel/.private/industrial_deprecated/share/industrial_deprecated/cmake/industrial_deprecatedConfig.cmake /home/yumi/yumi_ws/devel/share/industrial_deprecated/cmake/industrial_deprecatedConfig.cmake
+/home/yumi/yumi_ws/devel/.private/industrial_deprecated/share/industrial_deprecated/cmake/industrial_deprecatedConfig-version.cmake /home/yumi/yumi_ws/devel/share/industrial_deprecated/cmake/industrial_deprecatedConfig-version.cmake
+/home/yumi/yumi_ws/devel/.private/industrial_deprecated/lib/pkgconfig/industrial_deprecated.pc /home/yumi/yumi_ws/devel/lib/pkgconfig/industrial_deprecated.pc

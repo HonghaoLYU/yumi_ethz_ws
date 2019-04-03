@@ -1,0 +1,36 @@
+# CMake generated Testfile for 
+# Source directory: /home/yumi/yumi_ws/src
+# Build directory: /home/yumi/yumi_ws/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs(gtest)
+subdirs(abb_driver/abb)
+subdirs(abb_driver/abb_irb2400_moveit_config)
+subdirs(abb_driver/abb_irb6640_moveit_config)
+subdirs(abb_driver/abb_resources)
+subdirs(industrial_driver/industrial_core)
+subdirs(industrial_driver/industrial_deprecated)
+subdirs(libvisensor_devel)
+subdirs(rotors_simulator/rotors_description)
+subdirs(industrial_driver/industrial_msgs)
+subdirs(abb_driver/abb_irb2400_support)
+subdirs(abb_driver/abb_irb4400_support)
+subdirs(abb_driver/abb_irb5400_support)
+subdirs(abb_driver/abb_irb6600_support)
+subdirs(abb_driver/abb_irb6640_support)
+subdirs(industrial_driver/simple_message)
+subdirs(yumi/gazebo_mimic)
+subdirs(industrial_driver/industrial_utils)
+subdirs(industrial_driver/industrial_robot_client)
+subdirs(abb_driver/abb_driver)
+subdirs(industrial_driver/industrial_robot_simulator)
+subdirs(abb_driver/abb_irb2400_moveit_plugins)
+subdirs(industrial_driver/industrial_trajectory_filters)
+subdirs(yumi/yumi_control)
+subdirs(yumi/yumi_description)
+subdirs(yumi/yumi_hw)
+subdirs(yumi/yumi_moveit_config)
+subdirs(yumi/yumi_startup)
+subdirs(yumi/yumi_support)
+subdirs(yumi/yumi_launch)

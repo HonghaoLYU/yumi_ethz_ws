@@ -1,0 +1,8 @@
+prefix=/home/yumi/yumi_ws/devel
+
+Name: abb_irb4400_support
+Description: Description of abb_irb4400_support
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/yumi/yumi_ws/devel/lib 
+Requires: 

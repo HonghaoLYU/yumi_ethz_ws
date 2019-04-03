@@ -1,0 +1,5 @@
+yumi/gazebo_mimic
+/home/yumi/yumi_ws/devel/.private/gazebo_mimic/share/gazebo_mimic/cmake/gazebo_mimicConfig-version.cmake /home/yumi/yumi_ws/devel/share/gazebo_mimic/cmake/gazebo_mimicConfig-version.cmake
+/home/yumi/yumi_ws/devel/.private/gazebo_mimic/share/gazebo_mimic/cmake/gazebo_mimicConfig.cmake /home/yumi/yumi_ws/devel/share/gazebo_mimic/cmake/gazebo_mimicConfig.cmake
+/home/yumi/yumi_ws/devel/.private/gazebo_mimic/lib/libgazebo_mimic_plugin.so /home/yumi/yumi_ws/devel/lib/libgazebo_mimic_plugin.so
+/home/yumi/yumi_ws/devel/.private/gazebo_mimic/lib/pkgconfig/gazebo_mimic.pc /home/yumi/yumi_ws/devel/lib/pkgconfig/gazebo_mimic.pc

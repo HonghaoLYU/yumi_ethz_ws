@@ -1,0 +1,4 @@
+yumi/yumi_description
+/home/yumi/yumi_ws/devel/.private/yumi_description/share/yumi_description/cmake/yumi_descriptionConfig.cmake /home/yumi/yumi_ws/devel/share/yumi_description/cmake/yumi_descriptionConfig.cmake
+/home/yumi/yumi_ws/devel/.private/yumi_description/share/yumi_description/cmake/yumi_descriptionConfig-version.cmake /home/yumi/yumi_ws/devel/share/yumi_description/cmake/yumi_descriptionConfig-version.cmake
+/home/yumi/yumi_ws/devel/.private/yumi_description/lib/pkgconfig/yumi_description.pc /home/yumi/yumi_ws/devel/lib/pkgconfig/yumi_description.pc

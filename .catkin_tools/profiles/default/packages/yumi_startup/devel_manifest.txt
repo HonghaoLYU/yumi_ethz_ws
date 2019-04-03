@@ -1,0 +1,4 @@
+yumi/yumi_startup
+/home/yumi/yumi_ws/devel/.private/yumi_startup/share/yumi_startup/cmake/yumi_startupConfig.cmake /home/yumi/yumi_ws/devel/share/yumi_startup/cmake/yumi_startupConfig.cmake
+/home/yumi/yumi_ws/devel/.private/yumi_startup/share/yumi_startup/cmake/yumi_startupConfig-version.cmake /home/yumi/yumi_ws/devel/share/yumi_startup/cmake/yumi_startupConfig-version.cmake
+/home/yumi/yumi_ws/devel/.private/yumi_startup/lib/pkgconfig/yumi_startup.pc /home/yumi/yumi_ws/devel/lib/pkgconfig/yumi_startup.pc
