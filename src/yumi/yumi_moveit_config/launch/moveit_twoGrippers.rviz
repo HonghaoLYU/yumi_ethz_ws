@@ -397,126 +397,6 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        Head:
-          Value: false
-        Hips:
-          Value: false
-        LeftArm:
-          Value: false
-        LeftFoot:
-          Value: false
-        LeftForeArm:
-          Value: false
-        LeftHand:
-          Value: false
-        LeftHandIndex1:
-          Value: false
-        LeftHandIndex2:
-          Value: false
-        LeftHandIndex3:
-          Value: false
-        LeftHandMiddle1:
-          Value: false
-        LeftHandMiddle2:
-          Value: false
-        LeftHandMiddle3:
-          Value: false
-        LeftHandPinky1:
-          Value: false
-        LeftHandPinky2:
-          Value: false
-        LeftHandPinky3:
-          Value: false
-        LeftHandRing1:
-          Value: false
-        LeftHandRing2:
-          Value: false
-        LeftHandRing3:
-          Value: false
-        LeftHandThumb1:
-          Value: false
-        LeftHandThumb2:
-          Value: false
-        LeftHandThumb3:
-          Value: false
-        LeftInHandIndex:
-          Value: false
-        LeftInHandMiddle:
-          Value: false
-        LeftInHandPinky:
-          Value: false
-        LeftInHandRing:
-          Value: false
-        LeftLeg:
-          Value: false
-        LeftShoulder:
-          Value: false
-        LeftUpLeg:
-          Value: false
-        Neck:
-          Value: false
-        RightArm:
-          Value: false
-        RightFoot:
-          Value: false
-        RightForeArm:
-          Value: false
-        RightHand:
-          Value: false
-        RightHandIndex1:
-          Value: false
-        RightHandIndex2:
-          Value: false
-        RightHandIndex3:
-          Value: false
-        RightHandMiddle1:
-          Value: false
-        RightHandMiddle2:
-          Value: false
-        RightHandMiddle3:
-          Value: false
-        RightHandPinky1:
-          Value: false
-        RightHandPinky2:
-          Value: false
-        RightHandPinky3:
-          Value: false
-        RightHandRing1:
-          Value: false
-        RightHandRing2:
-          Value: false
-        RightHandRing3:
-          Value: false
-        RightHandThumb1:
-          Value: false
-        RightHandThumb2:
-          Value: false
-        RightHandThumb3:
-          Value: false
-        RightInHandIndex:
-          Value: false
-        RightInHandMiddle:
-          Value: false
-        RightInHandPinky:
-          Value: false
-        RightInHandRing:
-          Value: false
-        RightLeg:
-          Value: false
-        RightShoulder:
-          Value: false
-        RightUpLeg:
-          Value: false
-        Spine:
-          Value: false
-        Spine1:
-          Value: false
-        Spine2:
-          Value: false
-        Spine3:
-          Value: false
-        WorldPerceptionNeuron:
-          Value: false
         gripper_l_base:
           Value: false
         gripper_l_finger_l:
@@ -532,14 +412,12 @@ Visualization Manager:
         gripper_r_finger_r:
           Value: true
         gripper_r_tcp:
-          Value: true
+          Value: false
         stand:
           Value: false
         table_main:
           Value: false
         workspace:
-          Value: true
-        world:
           Value: true
         yumi_body:
           Value: false
@@ -651,10 +529,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.194795504
+      Pitch: 0.159795478
       Target Frame: yumi_body
       Value: XYOrbit (rviz)
-      Yaw: 0.466727883
+      Yaw: 5.56491327
     Saved: ~
 Window Geometry:
   Displays:

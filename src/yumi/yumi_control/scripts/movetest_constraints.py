@@ -136,13 +136,13 @@ class MoveGroupPythonInteface(object):
         # print (a)
         # print (Qux, Quy, Quz, Quw)
         # 设置动作对象目标位置姿态
-        pose_goal.orientation.x = Right_Qux
-        pose_goal.orientation.y = Right_Quy
-        pose_goal.orientation.z = Right_Quz
-        pose_goal.orientation.w = Right_Quw
-        pose_goal.position.x = Neurondata[5]
-        pose_goal.position.y = Neurondata[3]
-        pose_goal.position.z = Neurondata[4]
+        # pose_goal.orientation.x = Right_Qux
+        # pose_goal.orientation.y = Right_Quy
+        # pose_goal.orientation.z = Right_Quz
+        # pose_goal.orientation.w = Right_Quw
+        # pose_goal.position.x = Neurondata[5]
+        pose_goal.position.y = pose_goal.position.y - 0.01
+        # pose_goal.position.z = Neurondata[4]
         right_arm.set_pose_target(pose_goal)
         print "End effector pose %s" % pose_goal
 
@@ -252,9 +252,9 @@ def main():
         raw_input()
         yumi.right_arm_go_to_pose_goal()
         time.sleep(0.2)
-        print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
-        raw_input()
-        yumi.left_arm_go_to_pose_goal()
+        # print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+        # raw_input()
+        # yumi.left_arm_go_to_pose_goal()
 
 if __name__ == '__main__':
     main()

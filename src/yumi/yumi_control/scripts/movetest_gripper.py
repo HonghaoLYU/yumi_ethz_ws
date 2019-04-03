@@ -26,14 +26,14 @@ def callback(data):
     global a, b
     # global W_Eux, W_Euy, W_Euz
     # global Qux, Quy, Quz, Quw
-    a = data.RI
-    b = data.LI
+    a = round(data.RI,3)
+    b = round(data.LI,3)
     # print a
     # W_Euy = a[0]
     # W_Eux = a[1]
     # W_Euz = a[2]
     # (Qux, Quy, Quz, Quw) = quaternion_from_euler(W_Euz, -W_Eux, W_Euy)
-
+    
 
 class MoveGroupPythonInteface(object):
     def __init__(self):
@@ -164,6 +164,9 @@ class MoveGroupPythonInteface(object):
         # 规划并执行路径动作
         right_arm.go(joint_goal, wait=False)
 
+        # 动作完成后清除目标信息
+        right_arm.clear_pose_targets()
+
         # 调用 stop() 命令，确保动作停止
         right_arm.stop()
 
@@ -177,6 +180,9 @@ class MoveGroupPythonInteface(object):
 
         # 规划并执行路径动作
         left_arm.go(joint_goal, wait=False)
+
+        # 动作完成后清除目标信息
+        left_arm.clear_pose_targets()
 
         # 调用 stop() 命令，确保动作停止
         left_arm.stop()
@@ -244,9 +250,6 @@ class MoveGroupPythonInteface(object):
 
 
 def main():
-    # 定义全局变量count,判断程序执行次数
-    global count
-    count = 0
 
     # 输入回车,执行初始化程序
     print "============ Press `Enter` to begin the tutorial by setting up the moveit_commander (press ctrl-d to exit) ..."
@@ -255,7 +258,6 @@ def main():
 
     # 循环等待,执行动作程序
     while 1:
-        count = count + 1
 
         # print "============ Press `Enter` to  right arm calc..."
         # raw_input()
@@ -276,10 +278,10 @@ def main():
 
         print "============ Press `Enter` to  open right gripper 0.001m..."
         # raw_input()
-        yumi.right_gripper_go_to_goal()
-        time.sleep(0.5)
+        # yumi.right_gripper_go_to_goal()
+        # time.sleep(0.5)
         yumi.left_gripper_go_to_goal()
-        time.sleep(0.5)
+        time.sleep(0.15)
 
         # print "============ Press `Enter` to  right arm go to pose goal..."
         # raw_input()

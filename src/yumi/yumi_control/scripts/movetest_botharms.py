@@ -57,6 +57,7 @@ class MoveGroupPythonInteface(object):
         # 实例化 a `MoveGroupCommander`_ 对象.
         right_arm = moveit_commander.MoveGroupCommander("right_arm")
         left_arm = moveit_commander.MoveGroupCommander("left_arm")
+        both_arms = moveit_commander.MoveGroupCommander("both_arms")
 
         # 创建 `DisplayTrajectory`_ publisher,稍后用于发布RViz可视化的轨迹
         display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=20)
@@ -84,7 +85,7 @@ class MoveGroupPythonInteface(object):
         self.scene = scene
         self.right_arm = right_arm
         self.left_arm = left_arm
-        # self.gripper = gripper
+        self.both_arms = both_arms
         self.display_trajectory_publisher = display_trajectory_publisher
         # self.planning_frame = planning_frame
         # self.eef_link = eef_link
@@ -122,19 +123,12 @@ class MoveGroupPythonInteface(object):
         # 设置动作对象变量,此处为arm
         right_arm = self.right_arm
 
-        # Create a path constraint for the arm
-        # UNCOMMENT TO ENABLE ORIENTATION CONSTRAINTS
-        joint_const = JointConstraint()
-        joint_const.joint_name = "gripper_r_joint_r"
-        joint_const.position = 0
-        consts = Constraints()
-        consts.joint_constraints = [joint_const]
-        right_arm.set_path_constraints(consts)
-
         # 获取当前末端执行器位置姿态
         pose_goal = right_arm.get_current_pose().pose
+
         # print (a)
         # print (Qux, Quy, Quz, Quw)
+
         # 设置动作对象目标位置姿态
         pose_goal.orientation.x = Right_Qux
         pose_goal.orientation.y = Right_Quy
@@ -182,6 +176,45 @@ class MoveGroupPythonInteface(object):
         left_arm.clear_pose_targets()
         # 确保没有剩余未完成动作在执行
         left_arm.stop()
+
+    def both_arms_go_to_pose_goal(self):
+        # 设置动作对象变量,此处为arm
+        both_arms = self.both_arms
+
+        # # 获取当前末端执行器位置姿态
+        right_pose_goal = both_arms.get_current_pose(end_effector_link="gripper_r_finger_r")
+        left_pose_goal = both_arms.get_current_pose(end_effector_link="gripper_l_finger_r")
+        print (right_pose_goal)
+        print (left_pose_goal)
+
+        # 限制末端夹具运动
+        right_joint_const = JointConstraint()
+        right_joint_const.joint_name = "gripper_r_joint_r"
+        right_joint_const.position = 0
+        left_joint_const = JointConstraint()
+        left_joint_const.joint_name = "gripper_l_joint_r"
+        left_joint_const.position = 0
+        consts = Constraints()
+        consts.joint_constraints = [right_joint_const, left_joint_const]
+        both_arms.set_path_constraints(consts)
+
+        # 设置动作对象目标位置姿态
+        right_pose_goal.pose.position.y = right_pose_goal.pose.position.y - 0.01
+        left_pose_goal.pose.position.y = left_pose_goal.pose.position.y + 0.01
+
+        # 设置动作组的两个目标点
+        both_arms.set_pose_target(right_pose_goal, end_effector_link="gripper_r_finger_r")
+        both_arms.set_pose_target(left_pose_goal, end_effector_link="gripper_l_finger_r")
+
+        # # 规划和输出动作
+        traj = both_arms.plan()
+        both_arms.execute(traj, wait=False)
+
+        # # 获取当前末端执行器并输出
+        # eef_link = both_arms.get_end_effector_link()
+        # print "============ End effector: %s" % eef_link
+
+
 
     # def go_to_gripper_goal(self):
     #     # 设置动作对象变量，此处为gripper
@@ -248,13 +281,17 @@ def main():
     # 循环等待,执行动作程序
     while 1:
         # 执行arm目标点动作
-        print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
-        raw_input()
-        yumi.right_arm_go_to_pose_goal()
-        time.sleep(0.2)
+        # print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
+        # raw_input()
+        # yumi.right_arm_go_to_pose_goal()
+        
+        # print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+        # raw_input()
+        # yumi.left_arm_go_to_pose_goal()
+
         print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
         raw_input()
-        yumi.left_arm_go_to_pose_goal()
+        yumi.both_arms_go_to_pose_goal()
 
 if __name__ == '__main__':
     main()
