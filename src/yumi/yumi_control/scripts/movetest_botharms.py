@@ -18,11 +18,12 @@ from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
 # 全局变量定义以及赋值
 Neurondata = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
+Rightfinger = 0
+Leftfinger = 0
 
 # 定义回调函数,订阅接受到的消息传给data
-def callback(data):
-    # 对全局变量a进行赋值
+def Neuron_callback(data):
+    # 对全局变量进行赋值
     global Neurondata
     global Right_Eux, Right_Euy, Right_Euz, Left_Eux, Left_Euy, Left_Euz
     global Right_Qux, Right_Quy, Right_Quz, Right_Quw, Left_Qux, Left_Quy, Left_Quz, Left_Quw
@@ -36,6 +37,13 @@ def callback(data):
     (Right_Qux, Right_Quy, Right_Quz, Right_Quw) = quaternion_from_euler(Right_Euz, -Right_Eux, Right_Euy)
     (Left_Qux, Left_Quy, Left_Quz, Left_Quw) = quaternion_from_euler(Left_Euz, -Left_Eux, Left_Euy)
 
+# 定义回调函数,订阅接受到的消息传给data
+def Glove_callback(data):
+    # 对全局变量进行赋值
+    global Rightfinger, Leftfinger
+    Rightfinger = round(data.RI,3)
+    Leftfinger = round(data.LI,3)
+
 
 class MoveGroupPythonInteface(object):
     def __init__(self):
@@ -46,7 +54,8 @@ class MoveGroupPythonInteface(object):
         rospy.init_node('move_group_python_interface',anonymous=True)
 
         # 订阅话题
-        rospy.Subscriber('yumiaction', Float64MultiArray, callback)
+        rospy.Subscriber('yumiaction', Float64MultiArray, Neuron_callback)
+        rospy.Subscriber('dataglove', bend, Glove_callback)
 
         # 实例化 a `RobotCommander`_ 对象.
         robot = moveit_commander.RobotCommander()
@@ -66,9 +75,9 @@ class MoveGroupPythonInteface(object):
         # planning_frame = arm.get_planning_frame()
         # print "============ Reference frame: %s" % planning_frame
 
-        # # 获取当前末端执行器并输出
-        # eef_link = arm.get_end_effector_link()
-        # print "============ End effector: %s" % eef_link
+        # 获取当前末端执行器并输出
+        eef_link = arm.get_end_effector_link()
+        print "============ End effector: %s" % eef_link
 
         # 获取机器人中所有groups的名称并打印:
         group_names = robot.get_group_names()
@@ -91,33 +100,6 @@ class MoveGroupPythonInteface(object):
         # self.eef_link = eef_link
         self.group_names = group_names
 
-    # def go_to_joint_state(self):
-    #     # 设置动作对象变量,此处为arm
-    #     arm = self.arm
-    #     # 获取当前目标点关节状态
-    #     joint_goal = arm.get_current_joint_values()
-    #     if count == 1:
-    #         joint_goal[0] = 0
-    #         joint_goal[1] = -pi/4
-    #         joint_goal[2] = 0
-    #         joint_goal[3] = -pi/2
-    #         joint_goal[4] = 0
-    #         joint_goal[5] = pi/3
-    #         joint_goal[6] = 0
-    #     else:
-    #         joint_goal[0] = 0
-    #         joint_goal[1] = -pi/4
-    #         joint_goal[2] = 0
-    #         joint_goal[3] = -pi/2
-    #         joint_goal[4] = 0
-    #         joint_goal[5] = pi/3
-    #         joint_goal[6] = 0
-
-    #     # 规划并执行路径动作
-    #     arm.go(joint_goal, wait=True)
-
-    #     # 调用 stop() 命令，确保动作停止
-    #     arm.stop()
 
     def right_arm_go_to_pose_goal(self):
         # 设置动作对象变量,此处为arm
@@ -125,9 +107,6 @@ class MoveGroupPythonInteface(object):
 
         # 获取当前末端执行器位置姿态
         pose_goal = right_arm.get_current_pose().pose
-
-        # print (a)
-        # print (Qux, Quy, Quz, Quw)
 
         # 设置动作对象目标位置姿态
         pose_goal.orientation.x = Right_Qux
@@ -155,9 +134,6 @@ class MoveGroupPythonInteface(object):
         # 获取当前末端执行器位置姿态
         pose_goal = left_arm.get_current_pose().pose
 
-        # print (a)
-        # print (Qux, Quy, Quz, Quw)
-
         # 设置动作对象目标位置姿态
         pose_goal.orientation.x = Left_Qux
         pose_goal.orientation.y = Left_Quy
@@ -180,20 +156,18 @@ class MoveGroupPythonInteface(object):
     def both_arms_go_to_pose_goal(self):
         # 设置动作对象变量,此处为arm
         both_arms = self.both_arms
-
         # # 获取当前末端执行器位置姿态
         right_pose_goal = both_arms.get_current_pose(end_effector_link="gripper_r_finger_r")
         left_pose_goal = both_arms.get_current_pose(end_effector_link="gripper_l_finger_r")
         print (right_pose_goal)
         print (left_pose_goal)
-
         # 限制末端夹具运动
         right_joint_const = JointConstraint()
         right_joint_const.joint_name = "gripper_r_joint_r"
-        right_joint_const.position = 0
+        right_joint_const.position = Rightfinger
         left_joint_const = JointConstraint()
         left_joint_const.joint_name = "gripper_l_joint_r"
-        left_joint_const.position = 0
+        left_joint_const.position = Leftfinger
         consts = Constraints()
         consts.joint_constraints = [right_joint_const, left_joint_const]
         both_arms.set_path_constraints(consts)
@@ -209,44 +183,6 @@ class MoveGroupPythonInteface(object):
         # # 规划和输出动作
         traj = both_arms.plan()
         both_arms.execute(traj, wait=False)
-
-        # # 获取当前末端执行器并输出
-        # eef_link = both_arms.get_end_effector_link()
-        # print "============ End effector: %s" % eef_link
-
-
-
-    # def go_to_gripper_goal(self):
-    #     # 设置动作对象变量，此处为gripper
-    #     gripper = self.gripper
-
-    #     # 获取当前gripper姿态信息
-    #     gripper_goal = self.gripper.get_joint_value_target()
-    #     print "Gripper pose %s" % gripper_goal
-
-    #     # 设置gripper目标姿态
-    #     gripper.set_joint_value_target([0.02, 0.02])
-
-    #     # 规划和输出动作
-    #     gripper.go(wait=True)
-
-    #     # 确保没有剩余未完成动作在执行
-    #     gripper.stop()
-    #     # 动作完成后清除目标信息
-    #     gripper.clear_pose_targets()
-
-    # def go_to_gripper_joint_goal(self):
-    #     # 设置动作对象变量,此处为arm
-    #     arm = self.arm
-    #     # 获取当前目标点关节状态
-    #     joint_goal = arm.get_current_joint_values()
-    #     joint_goal[7] = joint_goal[7] + 0.001
-
-    #     # 规划并执行路径动作
-    #     arm.go(joint_goal, wait=True)
-
-    #     # 调用 stop() 命令，确保动作停止
-    #     arm.stop()
 
     def go_to_home_goal(self):
         # 控制机械臂回到初始化位置
@@ -289,7 +225,7 @@ def main():
         # raw_input()
         # yumi.left_arm_go_to_pose_goal()
 
-        print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+        print "============ Press `Enter` to execute both arms movement using a pose goal ..."
         raw_input()
         yumi.both_arms_go_to_pose_goal()
 
