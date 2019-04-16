@@ -22,14 +22,14 @@
     <link name="table_main">
       <visual>
         <geometry>
-          <box size="1.6 0.8 0.026"/>
+          <box size="0.1 0.8 0.026"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <material name="Ivory"/>
       </visual>
       <collision>
         <geometry>
-          <box size="1.6 0.8 0.026"/>
+          <box size="0.1 0.8 0.026"/>
         </geometry>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <material name="Ivory"/>

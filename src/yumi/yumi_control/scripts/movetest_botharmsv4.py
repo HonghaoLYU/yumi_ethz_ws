@@ -113,13 +113,19 @@ class MoveGroupPythonInteface(object):
         # 设置场景物体的名称
         table_id = 'table'
         box1_id = 'box1'
-        box2_id = 'box2'
+        box_side1_id = 'box_side1'
+        box_side2_id = 'box_side2'
+        box_side3_id = 'box_side3'
+        box_side4_id = 'box_side4'
         # 设置桌面的高度
         table_ground = 0.25
         # 设置table、box1和box2的三维尺寸
         table_size = [0.2, 0.7, 0.01]
         box1_size = [0.05, 0.05, 0.8]
-        box2_size = [0.05, 0.05, 0.15]
+        box_side1_size = [0.01, 0.3, 0.05]
+        box_side2_size = [0.3, 0.01, 0.05]
+        box_side3_size = [0.01, 0.3, 0.05]
+        box_side4_size = [0.3, 0.01, 0.05]
         # 将三个物体加入场景当中
         # table_pose = PoseStamped()
         # table_pose.header.frame_id = planning_frame
@@ -135,13 +141,35 @@ class MoveGroupPythonInteface(object):
         box1_pose.pose.position.z = 0.45
         box1_pose.pose.orientation.w = 1.0   
         scene.add_box(box1_id, box1_pose, box1_size)
-        # box2_pose = PoseStamped()
-        # box2_pose.header.frame_id = planning_frame
-        # box2_pose.pose.position.x = 0.19
-        # box2_pose.pose.position.y = 0.15
-        # box2_pose.pose.position.z = table_ground + table_size[2] + box2_size[2] / 2.0
-        # box2_pose.pose.orientation.w = 1.0   
-        # scene.add_box(box2_id, box2_pose, box2_size)
+        # 添加盒子围栏障碍
+        box_side1_pose = PoseStamped()
+        box_side1_pose.header.frame_id = planning_frame
+        box_side1_pose.pose.position.x = 0.3
+        box_side1_pose.pose.position.y = 0
+        box_side1_pose.pose.position.z = -0.02
+        box_side1_pose.pose.orientation.w = 1.0   
+        scene.add_box(box_side1_id, box_side1_pose, box_side1_size)
+        box_side2_pose = PoseStamped()
+        box_side2_pose.header.frame_id = planning_frame
+        box_side2_pose.pose.position.x = 0.45
+        box_side2_pose.pose.position.y = -0.15
+        box_side2_pose.pose.position.z = -0.02
+        box_side2_pose.pose.orientation.w = 1.0   
+        scene.add_box(box_side2_id, box_side2_pose, box_side2_size)
+        box_side3_pose = PoseStamped()
+        box_side3_pose.header.frame_id = planning_frame
+        box_side3_pose.pose.position.x = 0.6
+        box_side3_pose.pose.position.y = 0
+        box_side3_pose.pose.position.z = -0.02
+        box_side3_pose.pose.orientation.w = 1.0   
+        scene.add_box(box_side3_id, box_side3_pose, box_side3_size)
+        box_side4_pose = PoseStamped()
+        box_side4_pose.header.frame_id = planning_frame
+        box_side4_pose.pose.position.x = 0.45
+        box_side4_pose.pose.position.y = 0.15
+        box_side4_pose.pose.position.z = -0.02
+        box_side4_pose.pose.orientation.w = 1.0   
+        scene.add_box(box_side4_id, box_side4_pose, box_side4_size)
 
 
     def right_arm_go_to_pose_goal(self):
@@ -163,8 +191,8 @@ class MoveGroupPythonInteface(object):
         right_joint1_const = JointConstraint()
         right_joint1_const.joint_name = "yumi_joint_1_r"
         right_joint1_const.position = 0
-        right_joint1_const.tolerance_above = 150
-        right_joint1_const.tolerance_below = 15
+        right_joint1_const.tolerance_above = 120
+        right_joint1_const.tolerance_below = 0
         right_joint1_const.weight = 1.0
 
         # 限制2轴转动
@@ -236,7 +264,7 @@ class MoveGroupPythonInteface(object):
 
         # 施加全约束
         consts = Constraints()
-        consts.joint_constraints = [right_joint_const, right_joint1_const, right_joint2_const, right_joint3_const, right_joint4_const, right_joint6_const]
+        consts.joint_constraints = [right_joint_const]
         # consts.orientation_constraints = [right_orientation_const]
         # consts.position_constraints = [right_position_const]
         right_arm.set_path_constraints(consts)
@@ -251,6 +279,17 @@ class MoveGroupPythonInteface(object):
         pose_goal.position.z = (Neurondata[4]-0.53)*1.48+0.47
         right_arm.set_pose_target(pose_goal)
         print "End effector pose %s" % pose_goal
+
+        # # 设置动作对象目标位置姿态
+        # pose_goal.orientation.x = 0.1644
+        # pose_goal.orientation.y = 0.3111
+        # pose_goal.orientation.z = 0.9086
+        # pose_goal.orientation.w = 0.2247
+        # pose_goal.position.x = (Neurondata[5]-0.05)*1.48+0.053
+        # pose_goal.position.y = (Neurondata[3]+0.18)*1.48-0.12
+        # pose_goal.position.z = (Neurondata[4]-0.53)*1.48+0.47
+        # right_arm.set_pose_target(pose_goal)
+        # print "End effector pose %s" % pose_goal
 
         # # 设置动作对象目标位置姿态
         # pose_goal.orientation.x = pose_goal.orientation.x
@@ -540,11 +579,13 @@ def main():
     yumi = MoveGroupPythonInteface()
     yumi.set_scene()
     # 循环等待,执行动作程序
+    print "============ Press `Enter` to begin the teleoperation ..."
+    raw_input()
     while 1:
         # 执行arm目标点动作
         if RightfingerT < 6 :
             print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
-            raw_input()
+            # raw_input()
             yumi.right_arm_go_to_pose_goal()
         if LeftfingerT < -20 :
             print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
@@ -572,6 +613,7 @@ def main():
         else:
             yumi.left_gripper_go_to_close_goal()
             time.sleep(0.3)
+
 
 if __name__ == '__main__':
     main()
