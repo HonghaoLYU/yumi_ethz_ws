@@ -159,8 +159,11 @@ class MoveGroupPythonInteface(object):
         print (a)
         # 获取当前目标点关节状态
         joint_goal = right_arm.get_current_joint_values()
-        # print (joint_goal[7])
-        joint_goal[7] = a/2
+
+        if a > 0.025 :
+            joint_goal[7] = 0.024
+        else:
+            joint_goal[7] = 0
 
         # 规划并执行路径动作
         right_arm.go(joint_goal, wait=False)
@@ -177,8 +180,11 @@ class MoveGroupPythonInteface(object):
         print (b)
         # 获取当前目标点关节状态
         joint_goal = left_arm.get_current_joint_values()
-        # print (joint_goal[7])
-        joint_goal[7] = b/2
+
+        if b > 0.025 :
+            joint_goal[7] = 0.024
+        else:
+            joint_goal[7] = 0
 
         # 规划并执行路径动作
         left_arm.go(joint_goal, wait=False)
@@ -281,9 +287,9 @@ def main():
         print "============ Press `Enter` to  open right gripper 0.001m..."
         # raw_input()
         yumi.right_gripper_go_to_goal()
-        time.sleep(0.2)
+        time.sleep(0.15)
         yumi.left_gripper_go_to_goal()
-        time.sleep(0.2)
+        time.sleep(0.15)
 
         # print "============ Press `Enter` to  right arm go to pose goal..."
         # raw_input()

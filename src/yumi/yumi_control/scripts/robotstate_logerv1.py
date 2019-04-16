@@ -195,22 +195,22 @@ def main():
     sheet2.write(0, 9, 'Quz')
     sheet2.write(0, 10, 'Quw')
 
-    # 输入回车,执行初始化程序
-    print "============ Press `Enter` to begin the tutorial by setting up the moveit_commander (press ctrl-d to exit) ..."
-    raw_input()
-    yumi = MoveGroupPythonInteface()
+    # # 输入回车,执行初始化程序
+    # print "============ Press `Enter` to begin the tutorial by setting up the moveit_commander (press ctrl-d to exit) ..."
+    # raw_input()
+    # yumi = MoveGroupPythonInteface()
 
-    # 循环输出
-    while 1:
-        count = count + 1
-        # 显示及记录
-        print "============ Press `Enter` to execute a arm movement using a pose goal ..."
-        # raw_input()
-        # yumi.echo_robot_pose()
-        # yumi.echo_neuron_pose()
-        yumi.log_robot_pose()
-        yumi.log_neuron_pose()
-        wbk.save('test4.xls')
+    # # 循环输出
+    # while 1:
+    #     count = count + 1
+    #     # 显示及记录
+    #     print "============ Press `Enter` to execute a arm movement using a pose goal ..."
+    #     # raw_input()
+    #     # yumi.echo_robot_pose()
+    #     # yumi.echo_neuron_pose()
+    #     yumi.log_robot_pose()
+    #     yumi.log_neuron_pose()
+    wbk.save('test4.xls')
 
 
 if __name__ == '__main__':

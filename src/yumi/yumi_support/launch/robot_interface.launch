@@ -21,7 +21,7 @@
   <arg name="two_grippers" default="false"/> <!-- load joint names for two grippers if true -->
   <arg name="state_servers_only" default="false"/> <!-- only execute state server node if true -->
 
-  <!-- Run Left Arm Nodes for State Server and/or Motion Server -->
+   <!--Run Left Arm Nodes for State Server and/or Motion Server -->
   <group ns="left_arm">
     <param name="robot_ip_address" type="str" value="$(arg robot_ip)"/>
     <param name="J23_coupled" type="bool" value="$(arg J23_coupled)"/>

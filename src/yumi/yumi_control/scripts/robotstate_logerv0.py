@@ -51,7 +51,7 @@ class MoveGroupPythonInteface(object):
         scene = moveit_commander.PlanningSceneInterface()
 
         # 实例化 a `MoveGroupCommander`_ 对象.
-        group_name = "right_arm"
+        group_name = "left_arm"
         arm = moveit_commander.MoveGroupCommander(group_name)
 
         # 创建 `DisplayTrajectory`_ publisher,稍后用于发布RViz可视化的轨迹
@@ -284,10 +284,10 @@ def main():
         count = count + 1
         # 显示及记录
         print "============ Press `Enter` to execute a arm movement using a pose goal ..."
-        # raw_input()
-        # yumi.echo_robot_pose()
+        raw_input()
+        yumi.echo_robot_pose()
         # yumi.echo_neuron_pose()
-        yumi.log_robot_pose()
+        # yumi.log_robot_pose()
         # yumi.log_neuron_pose()
 
 

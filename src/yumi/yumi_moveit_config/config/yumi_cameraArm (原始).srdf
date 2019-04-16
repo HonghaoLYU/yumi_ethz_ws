@@ -45,7 +45,7 @@
       <joint name="yumi_joint_4_l" />
       <joint name="yumi_joint_5_l" />
       <joint name="yumi_joint_6_l" />
-      <!--<joint name="yumi_link_7_l_joint" />-->
+      <joint name="yumi_link_7_l_joint" />
     </group>
     <group name="right_arm">
       <joint name="yumi_joint_1_r" />

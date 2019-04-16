@@ -37,7 +37,7 @@
   <xacro:include filename="$(find yumi_description)/urdf/yumi_servo_gripper_left.xacro"/>
 
   <!-- Import Camera Assembly -->
-  <xacro:include filename="$(find yumi_description)/urdf/camera_assembly.xacro"/>
+  <!--<xacro:include filename="$(find yumi_description)/urdf/camera_assembly.xacro"/>-->
 
   <!-- Import Gazebo Plugins -->
   <xacro:include filename="$(find yumi_description)/urdf/gazebo.urdf.xacro"/>
@@ -72,9 +72,9 @@
   
   <xacro:unless value="$(arg two_grippers)">
     <!-- Define Macros for Camera Assembly Import -->
-    <xacro:camera_assembly parent="yumi_link_7_l" vi_namespace="${vi_namespace}" PI="${PI}" 
+    <!--<xacro:camera_assembly parent="yumi_link_7_l" vi_namespace="${vi_namespace}" PI="${PI}" 
       enable_cameras="$(arg enable_cameras)" enable_depth="$(arg enable_depth)" enable_ground_truth="$(arg enable_ground_truth)"
-    />
+    />-->
   </xacro:unless>
   <xacro:if value="$(arg two_grippers)">
     <!-- Define Macros for Left Servo Gripper Import -->

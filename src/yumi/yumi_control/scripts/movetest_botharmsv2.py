@@ -10,9 +10,9 @@ import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
 from math import pi
-from std_msgs.msg import String
+from std_msgs.msg import String, Header
 from std_msgs.msg import Float64MultiArray
-from moveit_msgs.msg import JointConstraint, JointLimits, Constraints
+from moveit_msgs.msg import JointConstraint, OrientationConstraint, JointLimits, Constraints
 from datamessage.msg import bend
 from moveit_commander.conversions import pose_to_list
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
@@ -21,6 +21,8 @@ from tf.transformations import euler_from_quaternion, quaternion_from_euler
 Neurondata = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 Rightfinger = 0
 Leftfinger = 0
+RightfingerT = 0
+LeftfingerT = 0
 
 # 定义回调函数,订阅接受到的消息传给data
 def Neuron_callback(data):
@@ -41,9 +43,11 @@ def Neuron_callback(data):
 # 定义回调函数,订阅接受到的消息传给data
 def Glove_callback(data):
     # 对全局变量进行赋值
-    global Rightfinger, Leftfinger
+    global Rightfinger, Leftfinger, RightfingerT, LeftfingerT
     Rightfinger = round(data.RI,3)
     Leftfinger = round(data.LI,3)
+    RightfingerT = round(data.RT,3)
+    LeftfingerT = round(data.LT,3)
 
 
 class MoveGroupPythonInteface(object):
@@ -200,10 +204,11 @@ class MoveGroupPythonInteface(object):
         both_arms = self.both_arms
         # 获取当前各轴转角
         axis_angle = both_arms.get_current_joint_values()
-        print axis_angle
+        # print axis_angle
         # 获取当前末端执行器位置姿态
         right_pose_goal = both_arms.get_current_pose(end_effector_link="gripper_r_finger_r")
         left_pose_goal = both_arms.get_current_pose(end_effector_link="gripper_l_finger_r")
+        print right_pose_goal
         # 限制末端夹具运动
         right_joint_const = JointConstraint()
         right_joint_const.joint_name = "gripper_r_joint_r"
@@ -217,9 +222,32 @@ class MoveGroupPythonInteface(object):
             left_joint_const.position = 0.024
         else:
             left_joint_const.position = 0
+
+        # 添加末端姿态约束:
+        right_orientation_const = OrientationConstraint()
+        right_orientation_const.header = Header()
+        right_orientation_const.orientation = right_pose_goal.pose.orientation
+        right_orientation_const.link_name = "gripper_r_joint_r"
+        right_orientation_const.absolute_x_axis_tolerance = 0.6
+        right_orientation_const.absolute_y_axis_tolerance = 0.6
+        right_orientation_const.absolute_z_axis_tolerance = 0.6
+        right_orientation_const.weight = 1
+        
+        left_orientation_const = OrientationConstraint()
+        left_orientation_const.header = Header()
+        left_orientation_const.orientation = left_pose_goal.pose.orientation
+        left_orientation_const.link_name = "gripper_l_joint_r"
+        left_orientation_const.absolute_x_axis_tolerance = 0.6
+        left_orientation_const.absolute_y_axis_tolerance = 0.6
+        left_orientation_const.absolute_z_axis_tolerance = 0.6
+        left_orientation_const.weight = 1
+
+        # 施加全约束 
         consts = Constraints()
-        consts.joint_constraints = [right_joint_const,left_joint_const]
+        consts.joint_constraints = [right_joint_const, left_joint_const]
+        # consts.orientation_constraints = [right_orientation_const, left_orientation_const]
         both_arms.set_path_constraints(consts)
+
         # # 设置动作对象目标位置姿态
         # # 右臂
         # right_pose_goal.pose.orientation.x = Right_Qux
@@ -266,7 +294,7 @@ class MoveGroupPythonInteface(object):
         # 左臂
         left_pose_goal.pose.orientation.x = Left_Qux
         left_pose_goal.pose.orientation.y = Left_Quy
-        left_pose_goal.pose.orientation.z = Left_Quz 
+        left_pose_goal.pose.orientation.z = Left_Quz
         left_pose_goal.pose.orientation.w = Left_Quw
         left_pose_goal.pose.position.x = (Neurondata[11]-0.05)*1.48+0.053
         left_pose_goal.pose.position.y = (Neurondata[9]-0.18)*1.48+0.12
@@ -347,17 +375,21 @@ def main():
         # raw_input()
         # yumi.left_arm_go_to_pose_goal()
 
-        # print "============ Press `Enter` to execute both arms movement using a pose goal ..."
+        print "============ Press `Enter` to execute both arms movement using a pose goal ..."
+        raw_input()
+        yumi.both_arms_go_to_pose_goal()
+
+        # print "============ Press `Enter` to execute right gripper movement using a pose goal ..."
         # raw_input()
-        # yumi.both_arms_go_to_pose_goal()
+        # yumi.right_gripper_go_to_pose_goal()
+        # print Rightfinger
+        # print RightfingerT
 
-        print "============ Press `Enter` to execute right gripper movement using a pose goal ..."
-        raw_input()
-        yumi.right_gripper_go_to_pose_goal()
-
-        print "============ Press `Enter` to execute left gripper movement using a pose goal ..."
-        raw_input()
-        yumi.left_gripper_go_to_pose_goal()
+        # print "============ Press `Enter` to execute left gripper movement using a pose goal ..."
+        # raw_input()
+        # yumi.left_gripper_go_to_pose_goal()
+        # print Leftfinger
+        # print LeftfingerT[]
 
 if __name__ == '__main__':
     main()

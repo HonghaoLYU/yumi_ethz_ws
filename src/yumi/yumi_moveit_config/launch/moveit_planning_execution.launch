@@ -26,6 +26,7 @@
   <group if="$(arg two_grippers)"> <!-- if using two grippers -->
     <rosparam command="load" file="$(find yumi_support)/config/two_grippers_joint_names_left.yaml"/>
     <rosparam command="load" file="$(find yumi_support)/config/two_grippers_joint_names_right.yaml"/>
+    <rosparam command="load" file="$(find yumi_support)/config/camera_arm_joint_names_left.yaml"/>
   </group>
 
   <!-- Load Robot Description -->
