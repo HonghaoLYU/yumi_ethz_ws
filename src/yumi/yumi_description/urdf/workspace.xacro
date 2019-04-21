@@ -22,42 +22,42 @@
     <link name="table_main">
       <visual>
         <geometry>
-          <box size="0.1 0.8 0.026"/>
+          <box size="1.2 0.8 0.026"/>
         </geometry>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.115"/>
         <material name="Ivory"/>
       </visual>
       <collision>
         <geometry>
-          <box size="0.1 0.8 0.026"/>
+          <box size="1.2 0.8 0.026"/>
         </geometry>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.115"/>
         <material name="Ivory"/>
       </collision>
     </link>
 
-    <!--<joint name="table_two_to_${table_parent}" type="fixed">
+    <joint name="box_to_${table_parent}" type="fixed">
       <parent link="${table_parent}"/>
-      <child link="table_two"/>
-      <origin rpy="0 0 0" xyz="-0.4 1.3 0"/>
-    </joint>-->
+      <child link="box"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </joint>
 
-    <!--<link name="table_two">
+    <link name="box">
       <visual>
+        <origin rpy="0 0 0" xyz="0.25 -0.15 -0.115"/>
         <geometry>
-          <box size="0.8 1.8 0.026"/>
+          <mesh filename="package://yumi_description/meshes/workspace/box_su.stl"/>
         </geometry>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <material name="Ivory"/>
+        <material name="Blue"/>
       </visual>
       <collision>
+        <origin rpy="0 0 0" xyz="0.25 -0.15 -0.115"/>
         <geometry>
-          <box size="0.8 1.8 0.026"/>
+          <mesh filename="package://yumi_description/meshes/workspace/box_su.stl"/>
         </geometry>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <material name="Ivory"/>
+        <material name="Blue"/>
       </collision>
-    </link>-->
+    </link>
 
 
     <!--                         -->
@@ -72,17 +72,17 @@
 
     <link name="stand">
       <visual>
-        <origin rpy="0 0 0" xyz="165.03939 -0.25716 0.00014"/>
-        <origin rpy="0 0 0" xyz=""/>
+        <origin rpy="0 0 ${PI}" xyz="0.13 0 -0.1525"/>
+        <origin rpy="0 0 ${PI}" xyz=""/>
         <geometry>
-          <mesh filename="package://yumi_description/meshes/base/IRB14000_BaseStand_Fixed.stl"/>
+          <mesh filename="package://yumi_description/meshes/base/IRB14000_BaseStand_Fixed_own.stl"/>
         </geometry>
         <material name="Ivory"/>
       </visual>
       <collision>
-        <origin rpy="0 0 0" xyz="165.03939 -0.25716 0.00014"/>
+        <origin rpy="0 0 ${PI}" xyz="0.13 0 -0.1525"/>
         <geometry>
-          <mesh filename="package://yumi_description/meshes/base/IRB14000_BaseStand_Fixed.stl"/>
+          <mesh filename="package://yumi_description/meshes/base/IRB14000_BaseStand_Fixed_own.stl"/>
         </geometry>
         <material name="Ivory"/>
       </collision>

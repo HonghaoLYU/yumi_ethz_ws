@@ -27,19 +27,19 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Grid1
         - /MotionPlanning1
         - /MotionPlanning1/Scene Robot1
         - /MotionPlanning1/Planning Request1
         - /TF1
         - /TF1/Frames1
-        - /TF1/Frames1/gripper_r_finger_r1
       Splitter Ratio: 0.5
     Tree Height: 517
 Visualization Manager:
   Class: ""
   Displays:
     - Alpha: 0.5
-      Cell Size: 1
+      Cell Size: 0.100000001
       Class: rviz/Grid
       Color: 21; 21; 21
       Enabled: true
@@ -47,7 +47,7 @@ Visualization Manager:
         Line Width: 0.0299999993
         Value: Lines
       Name: Grid
-      Normal Cell Count: 0
+      Normal Cell Count: 1
       Offset:
         X: 0
         Y: 0
@@ -238,7 +238,7 @@ Visualization Manager:
         Goal State Color: 255; 30; 10
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
-        Planning Group: both_arms
+        Planning Group: right_arm
         Query Goal State: true
         Query Start State: false
         Show Workspace: false
@@ -399,125 +399,125 @@ Visualization Manager:
       Frames:
         All Enabled: false
         Head:
-          Value: false
+          Value: true
         Hips:
-          Value: false
+          Value: true
         LeftArm:
-          Value: false
+          Value: true
         LeftFoot:
-          Value: false
+          Value: true
         LeftForeArm:
-          Value: false
+          Value: true
         LeftHand:
-          Value: false
+          Value: true
         LeftHandIndex1:
-          Value: false
+          Value: true
         LeftHandIndex2:
-          Value: false
+          Value: true
         LeftHandIndex3:
-          Value: false
+          Value: true
         LeftHandMiddle1:
-          Value: false
+          Value: true
         LeftHandMiddle2:
-          Value: false
+          Value: true
         LeftHandMiddle3:
-          Value: false
+          Value: true
         LeftHandPinky1:
-          Value: false
+          Value: true
         LeftHandPinky2:
-          Value: false
+          Value: true
         LeftHandPinky3:
-          Value: false
+          Value: true
         LeftHandRing1:
-          Value: false
+          Value: true
         LeftHandRing2:
-          Value: false
+          Value: true
         LeftHandRing3:
-          Value: false
+          Value: true
         LeftHandThumb1:
-          Value: false
+          Value: true
         LeftHandThumb2:
-          Value: false
+          Value: true
         LeftHandThumb3:
-          Value: false
+          Value: true
         LeftInHandIndex:
-          Value: false
+          Value: true
         LeftInHandMiddle:
-          Value: false
+          Value: true
         LeftInHandPinky:
-          Value: false
+          Value: true
         LeftInHandRing:
-          Value: false
+          Value: true
         LeftLeg:
-          Value: false
+          Value: true
         LeftShoulder:
-          Value: false
+          Value: true
         LeftUpLeg:
-          Value: false
+          Value: true
         Neck:
-          Value: false
+          Value: true
         RightArm:
-          Value: false
+          Value: true
         RightFoot:
-          Value: false
+          Value: true
         RightForeArm:
-          Value: false
+          Value: true
         RightHand:
-          Value: false
+          Value: true
         RightHandIndex1:
-          Value: false
+          Value: true
         RightHandIndex2:
-          Value: false
+          Value: true
         RightHandIndex3:
-          Value: false
+          Value: true
         RightHandMiddle1:
-          Value: false
+          Value: true
         RightHandMiddle2:
-          Value: false
+          Value: true
         RightHandMiddle3:
-          Value: false
+          Value: true
         RightHandPinky1:
-          Value: false
+          Value: true
         RightHandPinky2:
-          Value: false
+          Value: true
         RightHandPinky3:
-          Value: false
+          Value: true
         RightHandRing1:
-          Value: false
+          Value: true
         RightHandRing2:
-          Value: false
+          Value: true
         RightHandRing3:
-          Value: false
+          Value: true
         RightHandThumb1:
-          Value: false
+          Value: true
         RightHandThumb2:
-          Value: false
+          Value: true
         RightHandThumb3:
-          Value: false
+          Value: true
         RightInHandIndex:
-          Value: false
+          Value: true
         RightInHandMiddle:
-          Value: false
+          Value: true
         RightInHandPinky:
-          Value: false
+          Value: true
         RightInHandRing:
-          Value: false
+          Value: true
         RightLeg:
-          Value: false
+          Value: true
         RightShoulder:
-          Value: false
+          Value: true
         RightUpLeg:
-          Value: false
+          Value: true
         Spine:
-          Value: false
+          Value: true
         Spine1:
-          Value: false
+          Value: true
         Spine2:
-          Value: false
+          Value: true
         Spine3:
-          Value: false
+          Value: true
         WorldPerceptionNeuron:
-          Value: false
+          Value: true
         gripper_l_base:
           Value: false
         gripper_l_finger_l:
@@ -541,7 +541,7 @@ Visualization Manager:
         workspace:
           Value: true
         world:
-          Value: false
+          Value: true
         yumi_body:
           Value: false
         yumi_link_1_l:
@@ -637,7 +637,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 1.65573108
+      Distance: 1.4322598
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -652,10 +652,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.554795861
+      Pitch: -0.0902057514
       Target Frame: yumi_body
       Value: XYOrbit (rviz)
-      Yaw: 5.33490944
+      Yaw: 5.05990267
     Saved: ~
 Window Geometry:
   Displays:

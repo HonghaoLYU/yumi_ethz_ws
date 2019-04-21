@@ -111,29 +111,29 @@ class MoveGroupPythonInteface(object):
         scene = self.scene
         planning_frame = self.planning_frame
         # 设置场景物体的名称
-        table_id = 'table'
+        top_id = 'top'
         box1_id = 'box1'
         box_side1_id = 'box_side1'
         box_side2_id = 'box_side2'
         box_side3_id = 'box_side3'
         box_side4_id = 'box_side4'
-        # 设置桌面的高度
-        table_ground = 0.25
-        # 设置table、box1和box2的三维尺寸
-        table_size = [0.2, 0.7, 0.01]
+        desk_id = 'desk'
+        # 设置约束形状的三维尺寸
+        top_size = [0.05, 0.8, 0.05]
         box1_size = [0.05, 0.05, 0.8]
-        box_side1_size = [0.01, 0.3, 0.05]
-        box_side2_size = [0.3, 0.01, 0.05]
-        box_side3_size = [0.01, 0.3, 0.05]
-        box_side4_size = [0.3, 0.01, 0.05]
-        # 将三个物体加入场景当中
-        # table_pose = PoseStamped()
-        # table_pose.header.frame_id = planning_frame
-        # table_pose.pose.position.x = 0.26
-        # table_pose.pose.position.y = 0.0
-        # table_pose.pose.position.z = table_ground + table_size[2] / 2.0
-        # table_pose.pose.orientation.w = 1.0
-        # scene.add_box(table_id, table_pose, table_size)
+        box_side1_size = [0.01, 0.3, 0.1]
+        box_side2_size = [0.3, 0.01, 0.1]
+        box_side3_size = [0.01, 0.3, 0.1]
+        box_side4_size = [0.3, 0.01, 0.1]
+        desk_size = [1.5, 0.8, 0.01]
+        # 将竖直约束和顶部约束加入场景当中
+        top_pose = PoseStamped()
+        top_pose.header.frame_id = planning_frame
+        top_pose.pose.position.x = 0.25
+        top_pose.pose.position.y = 0.0
+        top_pose.pose.position.z = 0.6
+        top_pose.pose.orientation.w = 1.0
+        scene.add_box(top_id, top_pose, top_size)
         box1_pose = PoseStamped()
         box1_pose.header.frame_id = planning_frame
         box1_pose.pose.position.x = 0.25
@@ -141,35 +141,43 @@ class MoveGroupPythonInteface(object):
         box1_pose.pose.position.z = 0.45
         box1_pose.pose.orientation.w = 1.0   
         scene.add_box(box1_id, box1_pose, box1_size)
-        # 添加盒子围栏障碍
+        # 添加盒子围栏障碍到规划场景当中
         box_side1_pose = PoseStamped()
         box_side1_pose.header.frame_id = planning_frame
         box_side1_pose.pose.position.x = 0.3
         box_side1_pose.pose.position.y = 0
-        box_side1_pose.pose.position.z = -0.02
+        box_side1_pose.pose.position.z = -0.06
         box_side1_pose.pose.orientation.w = 1.0   
         scene.add_box(box_side1_id, box_side1_pose, box_side1_size)
         box_side2_pose = PoseStamped()
         box_side2_pose.header.frame_id = planning_frame
         box_side2_pose.pose.position.x = 0.45
         box_side2_pose.pose.position.y = -0.15
-        box_side2_pose.pose.position.z = -0.02
+        box_side2_pose.pose.position.z = -0.06
         box_side2_pose.pose.orientation.w = 1.0   
         scene.add_box(box_side2_id, box_side2_pose, box_side2_size)
         box_side3_pose = PoseStamped()
         box_side3_pose.header.frame_id = planning_frame
         box_side3_pose.pose.position.x = 0.6
         box_side3_pose.pose.position.y = 0
-        box_side3_pose.pose.position.z = -0.02
+        box_side3_pose.pose.position.z = -0.06
         box_side3_pose.pose.orientation.w = 1.0   
         scene.add_box(box_side3_id, box_side3_pose, box_side3_size)
         box_side4_pose = PoseStamped()
         box_side4_pose.header.frame_id = planning_frame
         box_side4_pose.pose.position.x = 0.45
         box_side4_pose.pose.position.y = 0.15
-        box_side4_pose.pose.position.z = -0.02
+        box_side4_pose.pose.position.z = -0.06
         box_side4_pose.pose.orientation.w = 1.0   
         scene.add_box(box_side4_id, box_side4_pose, box_side4_size)
+        # 将桌面约束加入场景当中
+        desk_pose = PoseStamped()
+        desk_pose.header.frame_id = planning_frame
+        desk_pose.pose.position.x = 0
+        desk_pose.pose.position.y = 0
+        desk_pose.pose.position.z = -0.08
+        desk_pose.pose.orientation.w = 1.0
+        # scene.add_box(desk_id, desk_pose, desk_size)
 
 
     def right_arm_go_to_pose_goal(self):
@@ -344,6 +352,62 @@ class MoveGroupPythonInteface(object):
         left_joint1_const.tolerance_below = 0
         left_position_const.weight = 1.0  
 
+        # 限制2轴转动
+        left_joint2_const = JointConstraint()
+        left_joint2_const.joint_name = "yumi_joint_2_r"
+        left_joint2_const.position = 0
+        left_joint2_const.tolerance_above = 0
+        left_joint2_const.tolerance_below = 150
+        left_joint2_const.weight = 1.0
+
+        # 限制3轴转动
+        left_joint3_const = JointConstraint()
+        left_joint3_const.joint_name = "yumi_joint_3_r"
+        left_joint3_const.position = 0
+        left_joint3_const.tolerance_above = 35
+        left_joint3_const.tolerance_below = 55
+        left_joint3_const.weight = 1.0
+
+        # 限制4轴转动
+        left_joint4_const = JointConstraint()
+        left_joint4_const.joint_name = "yumi_joint_4_r"
+        left_joint4_const.position = 0
+        left_joint4_const.tolerance_above = 60
+        left_joint4_const.tolerance_below = 75
+        left_joint4_const.weight = 1.0
+
+        # 限制5轴转动
+        right_joint5_const = JointConstraint()
+        right_joint5_const.joint_name = "yumi_joint_5_r"
+        right_joint5_const.position = 40
+        right_joint5_const.tolerance_above = 50
+        right_joint5_const.tolerance_below = 20
+        right_joint5_const.weight = 1.0
+
+        # 限制6轴转动
+        left_joint6_const = JointConstraint()
+        left_joint6_const.joint_name = "yumi_joint_6_r"
+        left_joint6_const.position = 0
+        left_joint6_const.tolerance_above = 10
+        left_joint6_const.tolerance_below = 35
+        left_joint6_const.weight = 1.0
+
+        # 限制7轴转动
+        left_joint7_const = JointConstraint()
+        left_joint7_const.joint_name = "yumi_joint_7_r"
+        left_joint7_const.position = -10
+        left_joint7_const.tolerance_above = 0
+        left_joint7_const.tolerance_below = 160
+        left_joint7_const.weight = 1.0
+
+        # 限制末端位移
+        left_position_const = PositionConstraint()
+        left_position_const.header = Header()
+        left_position_const.link_name = "gripper_r_joint_r"
+        left_position_const.target_point_offset.x = 0.5
+        left_position_const.target_point_offset.y = -0.5
+        left_position_const.target_point_offset.z = 1.0
+        left_position_const.weight = 1.0
 
         # 添加末端姿态约束:
         left_orientation_const = OrientationConstraint()
@@ -528,12 +592,16 @@ class MoveGroupPythonInteface(object):
         right_arm = self.right_arm
         # 获取当前末端执行器位置姿态
         right_joint_goal = right_arm.get_current_joint_values()
+        # right_arm.set_goal_joint_tolerance(0.015)
         # 设置末端关节目标值
-        right_joint_goal[7] = 0  
+        right_joint_goal[7] = 0
         # 规划并执行路径动作
+        # traj = right_arm.plan(right_joint_goal)
+        # right_arm.execute(traj, wait=False)
         right_arm.go(right_joint_goal, wait=False)
         right_arm.clear_pose_targets()
         right_arm.stop()
+        # right_arm.set_goal_joint_tolerance(0.0001)
 
     def right_gripper_go_to_open_goal(self):
         # 设置动作对象变量,此处为both_arms
@@ -541,8 +609,10 @@ class MoveGroupPythonInteface(object):
         # 获取当前末端执行器位置姿态
         right_joint_goal = right_arm.get_current_joint_values()
         # 设置末端关节目标值
-        right_joint_goal[7] = 0.024  
+        right_joint_goal[7] = 0.024
         # 规划并执行路径动作
+        # traj = right_arm.plan(right_joint_goal)
+        # right_arm.execute(traj, wait=False)
         right_arm.go(right_joint_goal, wait=False)
         right_arm.clear_pose_targets()
         right_arm.stop()
@@ -573,6 +643,16 @@ class MoveGroupPythonInteface(object):
 
 
 def main():
+    global tempa, tempb, tempc, tempd
+    tempa = 0
+    tempb = 1
+    tempc = 0
+    tempd = 1
+    global T1, T2, T3, T4
+    T1 = 0
+    T2 = 1
+    T3 = 0
+    T4 = 1
     # 输入回车,执行初始化程序
     print "============ Press `Enter` to begin the tutorial by setting up the moveit_commander (press ctrl-d to exit) ..."
     raw_input()
@@ -581,38 +661,73 @@ def main():
     # 循环等待,执行动作程序
     print "============ Press `Enter` to begin the teleoperation ..."
     raw_input()
+
     while 1:
         # 执行arm目标点动作
         if RightfingerT < 6 :
-            print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
-            # raw_input()
-            yumi.right_arm_go_to_pose_goal()
-        if LeftfingerT < -20 :
-            print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
-            # raw_input()
-            yumi.left_arm_go_to_pose_goal()
+            if T1 == T2 :
+                pass
+            else :
+                T1 = T2
+                print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
+                # raw_input()
+                yumi.right_arm_go_to_pose_goal()
+        else :
+            if T1 == T2 :
+                T2 = not(T2)
+            pass
 
+        if LeftfingerT < -20 :
+            if T3 == T4 :
+                pass
+            else :
+                T3 = T4
+                print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+                # raw_input()
+                yumi.left_arm_go_to_pose_goal()
+        else :
+            if T3 == T4 :
+                T4 = not(T4)
+            pass
         # print "============ Press `Enter` to execute both arms movement using a pose goal ..."
         # raw_input()
         # yumi.both_arms_go_to_pose_goal()
-
         if Rightfinger > -55 :
-            print "============ Press `Enter` to execute right gripper movement using a pose goal ..."
-            # raw_input()
-            yumi.right_gripper_go_to_open_goal()
-            time.sleep(0.3)
-        else:
-            yumi.right_gripper_go_to_close_goal()
-            time.sleep(0.3)
+            if tempa == tempb :
+                pass
+            else :
+                tempa = tempb
+                print "============ Press `Enter` to execute right gripper open using a pose goal ..."
+                # raw_input()
+                yumi.right_gripper_go_to_open_goal()
+                # time.sleep(0.3)
+        else :
+            if tempa == tempb :
+                tempb = not(tempb)
+                print "============ Press `Enter` to execute right gripper close using a pose goal ..."
+                # raw_input()
+                yumi.right_gripper_go_to_close_goal()
+                # time.sleep(0.3)
+            else:
+                pass
+
+        
 
         if Leftfinger > -32 :
-            print "============ Press `Enter` to execute left gripper movement using a pose goal ..."
-            # raw_input()
-            yumi.left_gripper_go_to_open_goal()
-            time.sleep(0.3)
+            if tempc == tempd :
+                pass
+            else :
+                tempc = tempd
+                print "============ Press `Enter` to execute left gripper open using a pose goal ..."
+                # raw_input()
+                yumi.left_gripper_go_to_open_goal()
+                # time.sleep(0.3)
         else:
-            yumi.left_gripper_go_to_close_goal()
-            time.sleep(0.3)
+            if tempc == tempd :
+                tempd = not(tempd)
+                print "============ Press `Enter` to execute left gripper close using a pose goal ..."
+                yumi.left_gripper_go_to_close_goal()
+            # time.sleep(0.3)
 
 
 if __name__ == '__main__':
