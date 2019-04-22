@@ -123,7 +123,7 @@ class MoveGroupPythonInteface(object):
         left_arm = self.left_arm
         # 获取当前末端执行器位置姿态
         right_joint_goal = right_arm.get_current_joint_values()
-        left_joint_goal = right_arm.get_current_joint_values()
+        left_joint_goal = left_arm.get_current_joint_values()
         # 打印输出
         print "YuMi右臂关节角 %s"
         print right_joint_goal
@@ -190,7 +190,7 @@ class MoveGroupPythonInteface(object):
         left_arm = self.left_arm
         # 获取当前末端执行器位置姿态
         right_joint_goal = right_arm.get_current_joint_values()
-        left_joint_goal = right_arm.get_current_joint_values()
+        left_joint_goal = left_arm.get_current_joint_values()
         # 记录数据
         sheet4.write(count, 1, right_joint_goal[0])
         sheet4.write(count, 2, right_joint_goal[1])
@@ -349,7 +349,7 @@ def main():
         count = count + 1
         # 显示及记录
         print "============ Press `Enter` to execute a arm movement using a pose goal ..."
-        # raw_input()
+        raw_input()
         # yumi.echo_robot_pose()
         yumi.echo_robot_joint()
         # yumi.echo_neuron_pose()

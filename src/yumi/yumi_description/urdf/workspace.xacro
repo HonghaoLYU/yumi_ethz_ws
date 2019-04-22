@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!-- 
-  PROGRAMMER: Frederick Wachter
-  DATE CREATED: 2016-05-30
-  LAST MODIFIED: 2016-05-30
+  PROGRAMMER: Honghao Lv
+  DATE CREATED: 2019-04-20
+  LAST MODIFIED: 2019-04-21
   PURPOSE: Build the workspace around YuMi
 -->
 
@@ -42,20 +42,37 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </joint>
 
-    <link name="box">
+    <!--<link name="box">
       <visual>
         <origin rpy="0 0 0" xyz="0.25 -0.15 -0.115"/>
         <geometry>
           <mesh filename="package://yumi_description/meshes/workspace/box_su.stl"/>
         </geometry>
-        <material name="Blue"/>
+        <material name="Ivory"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.25 -0.15 -0.115"/>
         <geometry>
           <mesh filename="package://yumi_description/meshes/workspace/box_su.stl"/>
         </geometry>
-        <material name="Blue"/>
+        <material name="Ivory"/>
+      </collision>
+    </link>-->
+
+        <link name="box">
+      <visual>
+        <origin rpy="0 0 0" xyz="0.4 0 -0.09"/>
+        <geometry>
+          <box size="0.5 0.5 0.05"/>
+        </geometry>
+        <material name="Ivory"/>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0.4 0 -0.09"/>
+        <geometry>
+          <box size="0.5 0.5 0.05"/>
+        </geometry>
+        <material name="Ivory"/>
       </collision>
     </link>
 
@@ -72,7 +89,7 @@
 
     <link name="stand">
       <visual>
-        <origin rpy="0 0 ${PI}" xyz="0.13 0 -0.1525"/>
+        <origin rpy="0 0 ${PI}" xyz="0.14 0 -0.1525"/>
         <origin rpy="0 0 ${PI}" xyz=""/>
         <geometry>
           <mesh filename="package://yumi_description/meshes/base/IRB14000_BaseStand_Fixed_own.stl"/>
@@ -80,7 +97,7 @@
         <material name="Ivory"/>
       </visual>
       <collision>
-        <origin rpy="0 0 ${PI}" xyz="0.13 0 -0.1525"/>
+        <origin rpy="0 0 ${PI}" xyz="0.14 0 -0.1525"/>
         <geometry>
           <mesh filename="package://yumi_description/meshes/base/IRB14000_BaseStand_Fixed_own.stl"/>
         </geometry>
