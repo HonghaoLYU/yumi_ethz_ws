@@ -174,7 +174,7 @@ class MoveGroupPythonInteface(object):
         # 记录左臂数据
         sheet1.write(count, 11, left_pose_goal.position.x)
         sheet1.write(count, 12, left_pose_goal.position.y)
-        sheet1.write(count, 13, leftt_pose_goal.position.z)
+        sheet1.write(count, 13, left_pose_goal.position.z)
         sheet1.write(count, 14, left_rpy[0])
         sheet1.write(count, 15, left_rpy[1])
         sheet1.write(count, 16, left_rpy[2])
@@ -353,7 +353,7 @@ def main():
         # yumi.echo_robot_pose()
         yumi.echo_robot_joint()
         # yumi.echo_neuron_pose()
-        # yumi.log_robot_pose()
+        yumi.log_robot_pose()
         # yumi.log_neuron_pose()
         yumi.log_robot_joint()
         wbk.save('test2.xls')
