@@ -89,6 +89,11 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          box:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           gripper_l_base:
             Alpha: 1
             Show Axes: false
@@ -238,7 +243,7 @@ Visualization Manager:
         Goal State Color: 255; 30; 10
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
-        Planning Group: right_arm
+        Planning Group: both_arms
         Query Goal State: true
         Query Start State: false
         Show Workspace: false
@@ -261,6 +266,11 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          box:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           gripper_l_base:
             Alpha: 1
             Show Axes: false
@@ -398,125 +408,7 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        Head:
-          Value: true
-        Hips:
-          Value: true
-        LeftArm:
-          Value: true
-        LeftFoot:
-          Value: true
-        LeftForeArm:
-          Value: true
-        LeftHand:
-          Value: true
-        LeftHandIndex1:
-          Value: true
-        LeftHandIndex2:
-          Value: true
-        LeftHandIndex3:
-          Value: true
-        LeftHandMiddle1:
-          Value: true
-        LeftHandMiddle2:
-          Value: true
-        LeftHandMiddle3:
-          Value: true
-        LeftHandPinky1:
-          Value: true
-        LeftHandPinky2:
-          Value: true
-        LeftHandPinky3:
-          Value: true
-        LeftHandRing1:
-          Value: true
-        LeftHandRing2:
-          Value: true
-        LeftHandRing3:
-          Value: true
-        LeftHandThumb1:
-          Value: true
-        LeftHandThumb2:
-          Value: true
-        LeftHandThumb3:
-          Value: true
-        LeftInHandIndex:
-          Value: true
-        LeftInHandMiddle:
-          Value: true
-        LeftInHandPinky:
-          Value: true
-        LeftInHandRing:
-          Value: true
-        LeftLeg:
-          Value: true
-        LeftShoulder:
-          Value: true
-        LeftUpLeg:
-          Value: true
-        Neck:
-          Value: true
-        RightArm:
-          Value: true
-        RightFoot:
-          Value: true
-        RightForeArm:
-          Value: true
-        RightHand:
-          Value: true
-        RightHandIndex1:
-          Value: true
-        RightHandIndex2:
-          Value: true
-        RightHandIndex3:
-          Value: true
-        RightHandMiddle1:
-          Value: true
-        RightHandMiddle2:
-          Value: true
-        RightHandMiddle3:
-          Value: true
-        RightHandPinky1:
-          Value: true
-        RightHandPinky2:
-          Value: true
-        RightHandPinky3:
-          Value: true
-        RightHandRing1:
-          Value: true
-        RightHandRing2:
-          Value: true
-        RightHandRing3:
-          Value: true
-        RightHandThumb1:
-          Value: true
-        RightHandThumb2:
-          Value: true
-        RightHandThumb3:
-          Value: true
-        RightInHandIndex:
-          Value: true
-        RightInHandMiddle:
-          Value: true
-        RightInHandPinky:
-          Value: true
-        RightInHandRing:
-          Value: true
-        RightLeg:
-          Value: true
-        RightShoulder:
-          Value: true
-        RightUpLeg:
-          Value: true
-        Spine:
-          Value: true
-        Spine1:
-          Value: true
-        Spine2:
-          Value: true
-        Spine3:
-          Value: true
-        WorldPerceptionNeuron:
+        box:
           Value: true
         gripper_l_base:
           Value: false
@@ -539,8 +431,6 @@ Visualization Manager:
         table_main:
           Value: false
         workspace:
-          Value: true
-        world:
           Value: true
         yumi_body:
           Value: false
@@ -579,6 +469,8 @@ Visualization Manager:
       Show Names: false
       Tree:
         workspace:
+          box:
+            {}
           table_main:
             yumi_body:
               stand:
@@ -637,25 +529,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 1.4322598
+      Distance: 1.43235803
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.030648455
-        Y: -0.0642781854
-        Z: 5.12943984e-07
+        X: 0.379322648
+        Y: -0.325749636
+        Z: 9.89781142e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: -0.0902057514
+      Pitch: 0.434794426
       Target Frame: yumi_body
       Value: XYOrbit (rviz)
-      Yaw: 5.05990267
+      Yaw: 5.68490458
     Saved: ~
 Window Geometry:
   Displays:

@@ -17,6 +17,7 @@ from datamessage.msg import bend
 from moveit_commander.conversions import pose_to_list
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 from geometry_msgs.msg import PoseStamped
+from joint_state import return_joint_state
 
 # 全局变量定义以及赋值
 Neurondata = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -644,8 +645,6 @@ class MoveGroupPythonInteface(object):
         # 设置末端关节目标值
         right_joint_goal[7] = 0
         # 规划并执行路径动作
-        # traj = right_arm.plan(right_joint_goal)
-        # right_arm.execute(traj, wait=False)
         right_arm.go(right_joint_goal, wait=False)
         right_arm.clear_pose_targets()
         right_arm.stop()
@@ -659,8 +658,6 @@ class MoveGroupPythonInteface(object):
         # 设置末端关节目标值
         right_joint_goal[7] = 0.024
         # 规划并执行路径动作
-        # traj = right_arm.plan(right_joint_goal)
-        # right_arm.execute(traj, wait=False)
         right_arm.go(right_joint_goal, wait=False)
         right_arm.clear_pose_targets()
         right_arm.stop()
@@ -689,58 +686,50 @@ class MoveGroupPythonInteface(object):
         left_arm.clear_pose_targets()
         left_arm.stop()
 
-    def right_arm_go_to_joint_goal(self):
+    def right_arm_go_to_joint_goal(self, jointnum):
         # 设置动作对象变量,此处为right_arm
         right_arm = self.right_arm
         # 获取当前末端执行器位置姿态
         right_joint_goal = right_arm.get_current_joint_values()
+        armnum = 'right_arm'
         # 设置末端关节目标值
-        return_joint_state = [1.157333255,-1.083496332,-1.234670043,0.304010361,3.539110422,0.670507312,2.880841017]
-        right_joint_goal[0] = return_joint_state[0]
-        right_joint_goal[1] = return_joint_state[1]
-        right_joint_goal[2] = return_joint_state[2]
-        right_joint_goal[3] = return_joint_state[3]
-        right_joint_goal[4] = return_joint_state[4]
-        right_joint_goal[5] = return_joint_state[5]
-        right_joint_goal[6] = return_joint_state[6]
-        print right_joint_goal
+        right_joint_goal[0] = return_joint_state(armnum,jointnum)[0]
+        right_joint_goal[1] = return_joint_state(armnum,jointnum)[1]
+        right_joint_goal[2] = return_joint_state(armnum,jointnum)[2]
+        right_joint_goal[3] = return_joint_state(armnum,jointnum)[3]
+        right_joint_goal[4] = return_joint_state(armnum,jointnum)[4]
+        right_joint_goal[5] = return_joint_state(armnum,jointnum)[5]
+        right_joint_goal[6] = return_joint_state(armnum,jointnum)[6]
+        print "End effector joint goal %s" % right_joint_goal
         # 规划并执行路径动作
         right_arm.go(right_joint_goal, wait=False)
+        right_arm.clear_pose_targets()
         right_arm.stop()
 
-    def left_arm_go_to_joint_goal(self):
+    def left_arm_go_to_joint_goal(self, jointnum):
         # 设置动作对象变量,此处为right_arm
         left_arm = self.left_arm
         # 获取当前末端执行器位置姿态
         left_joint_goal = left_arm.get_current_joint_values()
+        armnum = 'left_arm'
         # 设置末端关节目标值
-        return_joint_state = [-1.157333255,-1.083496332,1.234670043,0.304010361,-3.539110422,0.670507312,3.14+3.14-2.880841017]
-        # return_joint_state = [-1.7620639801,-1.0336602926,1.6182199717,0.2667441964,-3.315778017,1.1212291718,3.14+3.14-3.1433637142]
-        # return_joint_state = [-1.6798139811,-0.9578893185,1.4970027208,0.4048714936,-3.4262340069,1.2005531788,3.14+3.14-3.1135492325]
-        left_joint_goal[0] = return_joint_state[0]
-        left_joint_goal[1] = return_joint_state[1]
-        left_joint_goal[2] = return_joint_state[2]
-        left_joint_goal[3] = return_joint_state[3]
-        left_joint_goal[4] = return_joint_state[4]
-        left_joint_goal[5] = return_joint_state[5]
-        left_joint_goal[6] = return_joint_state[6]
-        print left_joint_goal
+        left_joint_goal[0] = return_joint_state(armnum,jointnum)[0]
+        left_joint_goal[1] = return_joint_state(armnum,jointnum)[1]
+        left_joint_goal[2] = return_joint_state(armnum,jointnum)[2]
+        left_joint_goal[3] = return_joint_state(armnum,jointnum)[3]
+        left_joint_goal[4] = return_joint_state(armnum,jointnum)[4]
+        left_joint_goal[5] = return_joint_state(armnum,jointnum)[5]
+        left_joint_goal[6] = return_joint_state(armnum,jointnum)[6]
+        print "End effector joint goal %s" % left_joint_goal
         # 规划并执行路径动作
         left_arm.go(left_joint_goal, wait=False)
         left_arm.stop()
 
 
 def main():
-    global tempa, tempb, tempc, tempd
-    tempa = 0
-    tempb = 1
-    tempc = 0
-    tempd = 1
-    global T1, T2, T3, T4
-    T1 = 0
-    T2 = 1
-    T3 = 0
-    T4 = 1
+    global count_left, count_right
+    count_left = 0
+    count_right = 0
     # 输入回车,执行初始化程序
     print "============ Press `Enter` to begin the tutorial by setting up the moveit_commander (press ctrl-d to exit) ..."
     raw_input()
@@ -751,12 +740,73 @@ def main():
     raw_input()
 
     while 1:
-        # 执行arm目标点动作
-        print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
-        raw_input()
-        yumi.right_arm_go_to_joint_goal()
-        # yumi.left_arm_go_to_joint_goal()
-            
+
+        if count_right < 10:
+            # # 执行arm目标点动作
+            print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
+            # raw_input()
+            yumi.right_arm_go_to_joint_goal(count_right)
+            time.sleep(3)
+            count_right = count_right + 1
+            print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.right_gripper_go_to_open_goal()
+            time.sleep(1.5)
+            print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.right_arm_go_to_joint_goal(count_right)
+            time.sleep(3)
+            count_right = count_right + 1
+            print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.right_gripper_go_to_close_goal()
+            time.sleep(1.5)
+            print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.right_arm_go_to_joint_goal(count_right-2)
+            time.sleep(3)
+            print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.right_arm_go_to_joint_goal(11)
+            time.sleep(4)
+            print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.right_gripper_go_to_open_goal()
+            time.sleep(1.5)
+
+
+        if count_left < 10:
+            # # 执行arm目标点动作
+            print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+            # raw_input()
+            yumi.left_arm_go_to_joint_goal(count_left)
+            time.sleep(3)
+            count_left = count_left + 1
+            print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.left_gripper_go_to_open_goal()
+            time.sleep(1.5)
+            print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.left_arm_go_to_joint_goal(count_left)
+            time.sleep(3)
+            count_left = count_left + 1
+            print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.left_gripper_go_to_close_goal()
+            time.sleep(1.5)
+            print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.left_arm_go_to_joint_goal(count_left-2)
+            time.sleep(3)
+            print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.left_arm_go_to_joint_goal(11)
+            time.sleep(4)
+            print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
+            # raw_input()            
+            yumi.left_gripper_go_to_open_goal()
+            time.sleep(1.5)           
 
 
 if __name__ == '__main__':
