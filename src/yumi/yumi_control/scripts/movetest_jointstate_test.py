@@ -695,7 +695,7 @@ class MoveGroupPythonInteface(object):
         # 获取当前末端执行器位置姿态
         right_joint_goal = right_arm.get_current_joint_values()
         # 设置末端关节目标值
-        return_joint_state = [1.157333255,-1.083496332,-1.234670043,0.304010361,3.539110422,0.670507312,2.880841017]
+        return_joint_state = [1.2479580640792847, -1.0671154260635376, -1.3205912113189697, 0.5590604543685913, 3.5177056789398193, 1.0005805492401123, 2.9756314754486084]
         right_joint_goal[0] = return_joint_state[0]
         right_joint_goal[1] = return_joint_state[1]
         right_joint_goal[2] = return_joint_state[2]
@@ -714,9 +714,7 @@ class MoveGroupPythonInteface(object):
         # 获取当前末端执行器位置姿态
         left_joint_goal = left_arm.get_current_joint_values()
         # 设置末端关节目标值
-        return_joint_state = [-1.157333255,-1.083496332,1.234670043,0.304010361,-3.539110422,0.670507312,3.14+3.14-2.880841017]
-        # return_joint_state = [-1.7620639801,-1.0336602926,1.6182199717,0.2667441964,-3.315778017,1.1212291718,3.14+3.14-3.1433637142]
-        # return_joint_state = [-1.6798139811,-0.9578893185,1.4970027208,0.4048714936,-3.4262340069,1.2005531788,3.14+3.14-3.1135492325]
+        return_joint_state = [-0.88517826795578, -2.373136043548584, 1.1855261325836182, 0.32002419233322144, -0.21708416938781738, 0.6049736738204956, -0.16402913630008698]
         left_joint_goal[0] = return_joint_state[0]
         left_joint_goal[1] = return_joint_state[1]
         left_joint_goal[2] = return_joint_state[2]

@@ -243,8 +243,8 @@ Visualization Manager:
         Goal State Color: 255; 30; 10
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
-        Planning Group: both_arms
-        Query Goal State: true
+        Planning Group: right_arm
+        Query Goal State: false
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 0.600000024
@@ -409,13 +409,13 @@ Visualization Manager:
       Frames:
         All Enabled: false
         box:
-          Value: true
+          Value: false
         gripper_l_base:
           Value: false
         gripper_l_finger_l:
           Value: false
         gripper_l_finger_r:
-          Value: true
+          Value: false
         gripper_l_tcp:
           Value: false
         gripper_r_base:
@@ -423,7 +423,7 @@ Visualization Manager:
         gripper_r_finger_l:
           Value: false
         gripper_r_finger_r:
-          Value: true
+          Value: false
         gripper_r_tcp:
           Value: false
         stand:
@@ -431,7 +431,7 @@ Visualization Manager:
         table_main:
           Value: false
         workspace:
-          Value: true
+          Value: false
         yumi_body:
           Value: false
         yumi_link_1_l:
@@ -529,25 +529,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 1.43235803
+      Distance: 1.83964288
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.379322648
-        Y: -0.325749636
-        Z: 9.89781142e-07
+        X: 0.141334176
+        Y: -0.0678704381
+        Z: 9.30176498e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.434794426
+      Pitch: 0.36979413
       Target Frame: yumi_body
       Value: XYOrbit (rviz)
-      Yaw: 5.68490458
+      Yaw: 0.0017218478
     Saved: ~
 Window Geometry:
   Displays:

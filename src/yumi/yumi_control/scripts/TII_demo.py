@@ -124,6 +124,7 @@ class MoveGroupPythonInteface(object):
         desk_id = 'desk'
         cover1_id = 'cover1'
         cover2_id = 'cover2'
+        cover3_id = 'cover3'
         # 设置约束形状的三维尺寸
         top_size = [0.05, 1.01, 0.05]
         top1_size = [0.05, 0.8, 0.05]
@@ -137,6 +138,7 @@ class MoveGroupPythonInteface(object):
         desk_size = [1.5, 0.8, 0.01]
         cover1_size = [0.001, 0.8, 0.1]
         cover2_size = [0.3, 0.8, 0.001]
+        cover3_size = [0.2, 0.55, 0.001]
         # 将竖直约束和顶部约束加入场景当中
         top_pose = PoseStamped()
         top_pose.header.frame_id = planning_frame
@@ -144,35 +146,35 @@ class MoveGroupPythonInteface(object):
         top_pose.pose.position.y = 0.0
         top_pose.pose.position.z = 0.6
         top_pose.pose.orientation.w = 1.0
-        scene.add_box(top_id, top_pose, top_size)
+        # scene.add_box(top_id, top_pose, top_size)
         top1_pose = PoseStamped()
         top1_pose.header.frame_id = planning_frame
         top1_pose.pose.position.x = 0.55
         top1_pose.pose.position.y = 0.0
         top1_pose.pose.position.z = 0.48
         top1_pose.pose.orientation.w = 1.0
-        scene.add_box(top1_id, top1_pose, top1_size)
+        # scene.add_box(top1_id, top1_pose, top1_size)
         box1_pose = PoseStamped()
         box1_pose.header.frame_id = planning_frame
         box1_pose.pose.position.x = 0.25
         box1_pose.pose.position.y = 0
         box1_pose.pose.position.z = 0.25
         box1_pose.pose.orientation.w = 1.0   
-        scene.add_box(box1_id, box1_pose, box1_size)
+        # scene.add_box(box1_id, box1_pose, box1_size)
         box2_pose = PoseStamped()
         box2_pose.header.frame_id = planning_frame
         box2_pose.pose.position.x = 0.25
         box2_pose.pose.position.y = -0.48
         box2_pose.pose.position.z = 0.25
         box2_pose.pose.orientation.w = 1.0   
-        scene.add_box(box2_id, box2_pose, box2_size)
+        # scene.add_box(box2_id, box2_pose, box2_size)
         box3_pose = PoseStamped()
         box3_pose.header.frame_id = planning_frame
         box3_pose.pose.position.x = 0.25
         box3_pose.pose.position.y = 0.48
         box3_pose.pose.position.z = 0.25
         box3_pose.pose.orientation.w = 1.0   
-        scene.add_box(box3_id, box3_pose, box3_size)
+        # scene.add_box(box3_id, box3_pose, box3_size)
         # 添加桌面和基座包覆到规划场景当中
         cover1_pose = PoseStamped()
         cover1_pose.header.frame_id = planning_frame
@@ -188,6 +190,13 @@ class MoveGroupPythonInteface(object):
         cover2_pose.pose.position.z = -0.101
         cover2_pose.pose.orientation.w = 1.0   
         scene.add_box(cover2_id, cover2_pose, cover2_size)
+        cover3_pose = PoseStamped()
+        cover3_pose.header.frame_id = planning_frame
+        cover3_pose.pose.position.x = 0.55
+        cover3_pose.pose.position.y = 0
+        cover3_pose.pose.position.z = -0.063
+        cover3_pose.pose.orientation.w = 1.0   
+        scene.add_box(cover3_id, cover3_pose, cover3_size)
         # 添加盒子围栏障碍到规划场景当中
         box_side1_pose = PoseStamped()
         box_side1_pose.header.frame_id = planning_frame
@@ -312,7 +321,7 @@ class MoveGroupPythonInteface(object):
         right_orientation_const = OrientationConstraint()
         right_orientation_const.header = Header()
         right_orientation_const.orientation = pose_goal.orientation
-        right_orientation_const.link_name = "gripper_r_joint_r"
+        right_orientation_const.link_name = "gripper_r_finger_r"
         right_orientation_const.absolute_x_axis_tolerance = 0.50
         right_orientation_const.absolute_y_axis_tolerance = 0.25
         right_orientation_const.absolute_z_axis_tolerance = 0.50
@@ -321,7 +330,7 @@ class MoveGroupPythonInteface(object):
         # 施加全约束
         consts = Constraints()
         consts.joint_constraints = [right_joint_const]
-        consts.orientation_constraints = [right_orientation_const]
+        # consts.orientation_constraints = [right_orientation_const]
         # consts.position_constraints = [right_position_const]
         right_arm.set_path_constraints(consts)
 
@@ -466,12 +475,12 @@ class MoveGroupPythonInteface(object):
         left_orientation_const.absolute_x_axis_tolerance = 0.5
         left_orientation_const.absolute_y_axis_tolerance = 0.25
         left_orientation_const.absolute_z_axis_tolerance = 0.5
-        left_orientation_const.weight = 100
+        left_orientation_const.weight = 1
 
         # 施加全约束
         consts = Constraints()
         consts.joint_constraints = [left_joint_const]
-        consts.orientation_constraints = [left_orientation_const]
+        # consts.orientation_constraints = [left_orientation_const]
         # consts.position_constraints = [left_position_const]
         left_arm.set_path_constraints(consts)
 
@@ -696,13 +705,14 @@ class MoveGroupPythonInteface(object):
         # 获取当前末端执行器位置姿态
         right_joint_goal = right_arm.get_current_joint_values()
         # 设置末端关节目标值
-        right_joint_goal[0] = return_joint_state(jointnum)[0]
-        right_joint_goal[1] = return_joint_state(jointnum)[1]
-        right_joint_goal[2] = return_joint_state(jointnum)[2]
-        right_joint_goal[3] = return_joint_state(jointnum)[3]
-        right_joint_goal[4] = return_joint_state(jointnum)[4]
-        right_joint_goal[5] = return_joint_state(jointnum)[5]
-        right_joint_goal[6] = return_joint_state(jointnum)[6]
+        armnum = 'right_arm'
+        right_joint_goal[0] = return_joint_state(armnum,jointnum)[0]
+        right_joint_goal[1] = return_joint_state(armnum,jointnum)[1]
+        right_joint_goal[2] = return_joint_state(armnum,jointnum)[2]
+        right_joint_goal[3] = return_joint_state(armnum,jointnum)[3]
+        right_joint_goal[4] = return_joint_state(armnum,jointnum)[4]
+        right_joint_goal[5] = return_joint_state(armnum,jointnum)[5]
+        right_joint_goal[6] = return_joint_state(armnum,jointnum)[6]
         print "End effector joint goal %s" % right_joint_goal
         # 规划并执行路径动作
         right_arm.go(right_joint_goal, wait=False)
@@ -714,13 +724,14 @@ class MoveGroupPythonInteface(object):
         # 获取当前末端执行器位置姿态
         left_joint_goal = left_arm.get_current_joint_values()
         # 设置末端关节目标值
-        left_joint_goal[0] = return_joint_state(jointnum)[0]
-        left_joint_goal[1] = return_joint_state(jointnum)[1]
-        left_joint_goal[2] = return_joint_state(jointnum)[2]
-        left_joint_goal[3] = return_joint_state(jointnum)[3]
-        left_joint_goal[4] = return_joint_state(jointnum)[4]
-        left_joint_goal[5] = return_joint_state(jointnum)[5]
-        left_joint_goal[6] = return_joint_state(jointnum)[6]
+        armnum = 'left_arm'
+        left_joint_goal[0] = return_joint_state(armnum,jointnum)[0]
+        left_joint_goal[1] = return_joint_state(armnum,jointnum)[1]
+        left_joint_goal[2] = return_joint_state(armnum,jointnum)[2]
+        left_joint_goal[3] = return_joint_state(armnum,jointnum)[3]
+        left_joint_goal[4] = return_joint_state(armnum,jointnum)[4]
+        left_joint_goal[5] = return_joint_state(armnum,jointnum)[5]
+        left_joint_goal[6] = return_joint_state(armnum,jointnum)[6]
         print "End effector joint goal %s" % left_joint_goal
         # 规划并执行路径动作
         left_arm.go(left_joint_goal, wait=False)
@@ -732,7 +743,7 @@ class MoveGroupPythonInteface(object):
         # 获取当前末端执行器位置姿态
         pose_goal = right_arm.get_current_pose().pose
         # 判断是否到达抓取工作空间/微调工作区间       
-        if (pose_goal.position.x >= 0.45 and pose_goal.position.x <= 0.60) and (pose_goal.position.y <= 0 and pose_goal.position.y >= -0.30) and (pose_goal.position.z <= 0.20 and pose_goal.position.z >= 0.0) :
+        if (pose_goal.position.x >= 0.4 and pose_goal.position.x <= 0.55) and (pose_goal.position.y <= 0.1 and pose_goal.position.y >= -0.30) and (pose_goal.position.z <= 0.15 and pose_goal.position.z >= -0.1) :
             right_posecon = 1          
         else:
             right_posecon = 0
@@ -744,11 +755,59 @@ class MoveGroupPythonInteface(object):
         # 获取当前末端执行器位置姿态
         pose_goal = left_arm.get_current_pose().pose
         # 判断是否到达抓取工作空间/微调工作区间
-        if (pose_goal.position.x >= 0.45 and pose_goal.position.x <= 0.60) and (pose_goal.position.y <= 0 and pose_goal.position.y >= -0.30) and (pose_goal.position.z <= 0.20 and pose_goal.position.z >= 0.0) :
+        if (pose_goal.position.x >= 0.35 and pose_goal.position.x <= 0.50) and (pose_goal.position.y <= 0.40 and pose_goal.position.y >= 0) and (pose_goal.position.z <= 0.15 and pose_goal.position.z >= -0.1) :
             left_posecon = 1          
         else:
             left_posecon = 0
         return left_posecon
+
+    def human_right_arm_pos_judge(self):
+        # 获取当前操作者的末端位置姿态
+        # 判断是否到达抓取工作空间/微调工作区间       
+        # if (Neurondata[5] >= 0.3 and Neurondata[5] <= 0.5) and (Neurondata[3] <= 0.3 and Neurondata[3] >= 0.1) and (Neurondata[4] <= 0.5 and Neurondata[4] >= 0.3) :
+        #     right_posecon = 1          
+        # elif (Neurondata[5] >= 0.3 and Neurondata[5] <= 0.5) and (Neurondata[3] <= 0.1 and Neurondata[3] >= -0.1) and (Neurondata[4] <= 0.5 and Neurondata[4] >= 0.3) :
+        #     right_posecon = 2
+        # elif (Neurondata[5] >= 0.3 and Neurondata[5] <= 0.5) and (Neurondata[3] <= -0.1 and Neurondata[3] >= 0.1) and (Neurondata[4] <= 0.5 and Neurondata[4] >= 0.3) :
+        #     right_posecon = 3
+        # else:
+        #     right_posecon = 0
+        # return right_posecon
+        print Neurondata[3]
+        if Neurondata[3] >= 0.1 :
+            right_posecon = 1          
+        elif Neurondata[3] <= 0.1 and Neurondata[3] >= -0.1 :
+            right_posecon = 2
+        elif Neurondata[3] <= -0.1  :
+            right_posecon = 3
+        else:
+            right_posecon = 0
+        return right_posecon
+    
+    def right_fingerT_type_judge(self):
+        if RightfingerT < -40 :
+            print "============ rightarm debug ..."
+            raw_input()
+            if T1 == T2 :
+                pass
+            else :
+                T1 = T2
+                right_fingerT_type = 1
+        else :
+            if T1 == T2 :
+                T2 = not(T2)
+                right_fingerT_type = 0
+            pass
+        return right_fingerT_type
+
+    def right_fingerT_wait_judge(self):
+        while 1:
+            time.sleep(1)
+            print "wait"
+            print RightfingerT
+            if RightfingerT < -10:
+                print "ok"
+                break
 
     def right_arm_get_current_joint_state(self):
         # 设置动作对象变量,此处为right_arm
@@ -766,22 +825,23 @@ class MoveGroupPythonInteface(object):
 
 
 def main():
-    global tempa, tempb, tempc, tempd
-    tempa = 0
-    tempb = 1
-    tempc = 0
-    tempd = 1
+    # global tempa, tempb, tempc, tempd
+    # tempa = 0
+    # tempb = 1
+    # tempc = 0
+    # tempd = 1
     global T1, T2, T3, T4
     T1 = 0
     T2 = 1
     T3 = 0
     T4 = 1
-    global limit_workspace_time, right_outside_con, left_outside_con
-    right_limit_workspace_time = 0
-    left_limit_workspace_time = 0
-    right_outside_con = 1
-    left_outside_con = 1
+    # global limit_workspace_time, right_outside_con, left_outside_con
+    # right_limit_workspace_time = 0
+    # left_limit_workspace_time = 0
+    # right_outside_con = 1
+    # left_outside_con = 1
     global right_arm_joint_state, left_arm_joint_state
+
     # 输入回车,执行初始化程序
     print "============ Press `Enter` to begin the tutorial by setting up the moveit_commander (press ctrl-d to exit) ..."
     raw_input()
@@ -793,88 +853,199 @@ def main():
 
     while 1:
         # 执行arm目标点动作
-        if RightfingerT < -10 :
-            if T1 == T2 :
-                pass
-            else :
-                T1 = T2
-                right_pose_condition = yumi.right_arm_move_type_judge()
-                right_arm_joint_state = yumi.right_arm_get_current_joint_state()
-                # raw_input()
-                if not right_pose_condition:
-                    print "============ Press `Enter` to execute a right arm movement using a pose goal ..."
-                    yumi.right_arm_go_to_pose_goal()
-                else:
-                    if right_outside_con == 1 :
-                        print "============ Press `Enter` to execute a right arm using a joint goal ..."
-                        yumi.right_arm_go_to_joint_goal(right_limit_workspace_time)
-                        right_limit_workspace_time = right_limit_workspace_time + 1
-                        if (right_limit_workspace_time%2 == 0):
-                            right_outside_con = 0
-                if (right_limit_workspace_time%2 == 0) and (right_arm_joint_state[7] <= 0.02) :
-                    yumi.right_arm_go_to_pose_goal()
-                    right_outside_con = 1
-        else :
-            if T1 == T2 :
-                T2 = not(T2)
-            pass
+        # if RightfingerT < -10 :
+            # print "============ rightarm debug ..."
+            # raw_input()
+            # if T1 == T2 :
+            #     pass
+            # else :
+            #     T1 = T2
+            #     right_arm_joint_state = yumi.right_arm_get_current_joint_state()
+                
+            print "============ wait for con judge ..."
+            yumi.right_fingerT_wait_judge()
+            print "============ wait for con judge done..."
+            right_pose_condition = yumi.human_right_arm_pos_judge()
+            print right_pose_condition
 
-        if LeftfingerT < -20 :
-            if T3 == T4 :
-                pass
-            else :
-                T3 = T4
-                left_pose_condition = yumi.left_arm_move_type_judge()
-                left_arm_joint_state = yumi.left_arm_get_current_joint_state()
-                # raw_input()
-                if not left_pose_condition:
-                    print "============ Press `Enter` to execute a left arm movement using a pose goal ..."
-                    yumi.left_arm_go_to_pose_goal()
-                else:
-                    if left_outside_con == 1:
-                        print "============ Press `Enter` to execute a left arm using a joint goal ..."
-                        yumi.left_arm_go_to_joint_goal(left_limit_workspace_time)
-                        left_limit_workspace_time = left_limit_workspace_time + 1
-                        if (left_limit_workspace_time%2 == 0):
-                            left_outside_con = 0
-                if (left_limit_workspace_time%2 == 0) and (left_arm_joint_state[7] <= 0.02) :
-                    yumi.left_arm_go_to_pose_goal()
-                    left_outside_con = 1
-        else :
-            if T3 == T4 :
-                T4 = not(T4)
-            pass
 
-        if Rightfinger > -55 :
-            if tempa == tempb :
-                pass
-            else :
-                tempa = tempb
-                print "============ Press `Enter` to execute right gripper open using a pose goal ..."
+            if right_pose_condition == 1:
+                print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+                # yumi.right_fingerT_wait_judge()
                 # raw_input()
-                yumi.right_gripper_go_to_open_goal()
-        else :
-            if tempa == tempb :
-                tempb = not(tempb)
-                print "============ Press `Enter` to execute right gripper close using a pose goal ..."
+                yumi.right_arm_go_to_joint_goal(0)
+                time.sleep(3)
+                print "============ Press `Enter` to exact approach ..."
+                # yumi.right_fingerT_wait_judge()
                 # raw_input()
-                yumi.right_gripper_go_to_close_goal()
-            else:
-                pass
+                for i in range(3):
+                    yumi.right_arm_go_to_joint_goal(0)
+                    time.sleep(1)
+                
+                print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                yumi.right_arm_go_to_joint_goal(1)
+                time.sleep(3)
+                print "============ Press `Enter` to exact approach ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                for i in range(3):
+                    yumi.right_arm_go_to_joint_goal(1)
+                    time.sleep(1)
+                
+                print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                yumi.right_arm_go_to_joint_goal(2)
+                time.sleep(3)
+                print "============ Press `Enter` to exact approach ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                for i in range(3):
+                    yumi.right_arm_go_to_joint_goal(2)
+                    time.sleep(1)
+                
 
-        if Leftfinger > -32 :
-            if tempc == tempd :
-                pass
-            else :
-                tempc = tempd
-                print "============ Press `Enter` to execute left gripper open using a pose goal ..."
+            if right_pose_condition == 2:
+                print "============ Press `Enter` to execute a right arm using a joint goal2 ..."
+                # yumi.right_fingerT_wait_judge()
                 # raw_input()
-                yumi.left_gripper_go_to_open_goal()
-        else:
-            if tempc == tempd :
-                tempd = not(tempd)
-                print "============ Press `Enter` to execute left gripper close using a pose goal ..."
-                yumi.left_gripper_go_to_close_goal()
+                yumi.right_arm_go_to_joint_goal(3)
+                time.sleep(3)
+                print "============ Press `Enter` to exact approach ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                for i in range(3):
+                    yumi.right_arm_go_to_joint_goal(3)
+                    time.sleep(1)
+                
+                print "============ Press `Enter` to execute a right arm using a joint goal2 ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                yumi.right_arm_go_to_joint_goal(4)
+                time.sleep(3)
+                print "============ Press `Enter` to exact approach ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                for i in range(3):
+                    yumi.right_arm_go_to_joint_goal(4)
+                    time.sleep(1)
+                
+                print "============ Press `Enter` to execute a right arm using a joint goal2 ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                yumi.right_arm_go_to_joint_goal(5)
+                time.sleep(3)
+                print "============ Press `Enter` to exact approach ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                for i in range(3):
+                    yumi.right_arm_go_to_joint_goal(5)
+                    time.sleep(1)
+
+            if right_pose_condition == 3:
+                print "============ Press `Enter` to execute a right arm using a joint goal3 ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                yumi.right_arm_go_to_joint_goal(6)
+                time.sleep(3)
+                print "============ Press `Enter` to exact approach ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                for i in range(3):
+                    yumi.right_arm_go_to_joint_goal(6)
+                    time.sleep(1)
+                
+                print "============ Press `Enter` to execute a right arm using a joint goal3 ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                yumi.right_arm_go_to_joint_goal(7)
+                time.sleep(3)
+                print "============ Press `Enter` to exact approach ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                for i in range(3):
+                    yumi.right_arm_go_to_joint_goal(7)
+                    time.sleep(1)
+                
+                print "============ Press `Enter` to execute a right arm using a joint goal3 ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                yumi.right_arm_go_to_joint_goal(6)
+                time.sleep(3)
+                print "============ Press `Enter` to exact approach ..."
+                # yumi.right_fingerT_wait_judge()
+                # raw_input()
+                for i in range(3):
+                    yumi.right_arm_go_to_joint_goal(6)
+                    time.sleep(1)
+            
+        # else :
+        #     if T1 == T2 :
+        #         T2 = not(T2)
+        #     pass
+
+        # if LeftfingerT < -20 :
+        #     if T3 == T4 :
+        #         pass
+        #     else :
+        #         T3 = T4
+        #         left_pose_condition = yumi.left_arm_move_type_judge()
+        #         left_arm_joint_state = yumi.left_arm_get_current_joint_state()
+        #         # raw_input()
+        #         if not left_pose_condition:
+        #             print "============ left_con1 ============"
+        #             yumi.left_arm_go_to_pose_goal()
+        #         else:
+        #             if left_outside_con == 1 and left_limit_workspace_time <= 6:
+        #                 print "============ Press `Enter` to execute a left arm using a joint goal ..."
+        #                 yumi.left_arm_go_to_joint_goal(left_limit_workspace_time)
+        #                 left_limit_workspace_time = left_limit_workspace_time + 1
+        #                 print left_limit_workspace_time
+        #                 if (left_limit_workspace_time%3 == 0):
+        #                     left_outside_con = 0
+        #         if ((left_limit_workspace_time%4 == 0) and (left_arm_joint_state[7] <= 0.01)) or left_limit_workspace_time > 6:
+        #             print "============== left_con2 ============"
+        #             yumi.left_arm_go_to_pose_goal()
+        #             left_outside_con = 1
+            
+                
+        # else :
+        #     if T3 == T4 :
+        #         T4 = not(T4)
+        #     pass
+
+        # if Rightfinger > -55 :
+        #     if tempa == tempb :
+        #         pass
+        #     else :
+        #         tempa = tempb
+        #         print "============ Press `Enter` to execute right gripper open using a pose goal ..."
+        #         # raw_input()
+        #         yumi.right_gripper_go_to_open_goal()
+        # else :
+        #     if tempa == tempb :
+        #         tempb = not(tempb)
+        #         print "============ Press `Enter` to execute right gripper close using a pose goal ..."
+        #         # raw_input()
+        #         yumi.right_gripper_go_to_close_goal()
+        #     else:
+        #         pass
+
+        # if Leftfinger > -52 :
+        #     if tempc == tempd :
+        #         pass
+        #     else :
+        #         tempc = tempd
+        #         print "============ Press `Enter` to execute left gripper open using a pose goal ..."
+        #         # raw_input()
+        #         yumi.left_gripper_go_to_open_goal()
+        # else:
+        #     if tempc == tempd :
+        #         tempd = not(tempd)
+        #         print "============ Press `Enter` to execute left gripper close using a pose goal ..."
+        #         yumi.left_gripper_go_to_close_goal()
             
 
 if __name__ == '__main__':

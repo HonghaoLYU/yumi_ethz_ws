@@ -353,10 +353,10 @@ def main():
         # yumi.echo_robot_pose()
         yumi.echo_robot_joint()
         # yumi.echo_neuron_pose()
-        yumi.log_robot_pose()
+        # yumi.log_robot_pose()
         # yumi.log_neuron_pose()
-        yumi.log_robot_joint()
-        wbk.save('test2.xls')
+        # yumi.log_robot_joint()
+        # wbk.save('test2.xls')
 
 
 if __name__ == '__main__':
