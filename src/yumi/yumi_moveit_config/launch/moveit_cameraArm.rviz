@@ -71,6 +71,11 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          box:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           gripper_r_base:
             Alpha: 1
             Show Axes: false
@@ -202,7 +207,7 @@ Visualization Manager:
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
         Planning Group: both_arms
-        Query Goal State: false
+        Query Goal State: true
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
@@ -224,6 +229,11 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          box:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           gripper_r_base:
             Alpha: 1
             Show Axes: false
@@ -353,25 +363,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.76002002
+      Distance: 4.21876812
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.113567002
-        Y: 0.105920002
-        Z: 2.23518001e-07
+        X: 2.14284682
+        Y: 0.15225789
+        Z: 3.08705324e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.549796999
+      Pitch: 0.399796963
       Target Frame: yumi_body
       Value: XYOrbit (rviz)
-      Yaw: 0.551760972
+      Yaw: 5.82994127
     Saved: ~
 Window Geometry:
   Displays:
