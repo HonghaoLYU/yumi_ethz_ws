@@ -704,6 +704,7 @@ class MoveGroupPythonInteface(object):
         right_arm = self.right_arm
         # 获取当前末端执行器位置姿态
         right_joint_goal = right_arm.get_current_joint_values()
+        print right_joint_goal
         # 设置末端关节目标值
         armnum = 'right_arm'
         right_joint_goal[0] = return_joint_state(armnum,jointnum)[0]
@@ -886,6 +887,7 @@ def main():
             # right_pose_condition = yumi.human_right_arm_pos_judge()
             # print right_pose_condition
 
+            # ================================== 左臂归位
 
             # if right_pose_condition == 1:
             print "============ Press `Enter` to execute a left arm using a joint goal0 ..."
@@ -899,6 +901,8 @@ def main():
             # for i in range(3):
             #     yumi.right_arm_go_to_joint_goal(0)
             #     time.sleep(1)
+
+            # ================================================ 拔出销
             
             print "============ Press `Enter` to execute a right arm using a joint goal0 ..."
             # yumi.right_fingerT_wait_judge()
@@ -965,15 +969,18 @@ def main():
             time.sleep(3)
 
             print "============ Press `Enter` to close a finger ..."
-            # yumi.right_fingerI_wait_open_judge()
+            # yumi.right_fingerI_wait_close_judge()
             raw_input()
             yumi.right_gripper_go_to_close_goal()
             time.sleep(1)
 
+            # ========================================== 拔出刀具
+
+            # 刀具夹取点上方/拔出点
             print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
             # yumi.right_fingerT_wait_judge()
             raw_input()
-            yumi.right_arm_go_to_joint_goal(0)
+            yumi.right_arm_go_to_joint_goal(6)
             time.sleep(3)
 
             print "============ Press `Enter` to open a finger ..."
@@ -1002,6 +1009,13 @@ def main():
             yumi.right_arm_go_to_joint_goal(6)
             time.sleep(3)
 
+            # 刀具夹取上方到放置点上方的过渡点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(9)
+            time.sleep(3)
+
             # 刀具放置上点
             print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
             # yumi.right_fingerT_wait_judge()
@@ -1021,6 +1035,137 @@ def main():
             raw_input()
             yumi.right_gripper_go_to_open_goal()
             time.sleep(1)
+
+            print "============ Press `Enter` to close a finger ..."
+            # yumi.right_fingerI_wait_close_judge()
+            raw_input()
+            yumi.right_gripper_go_to_close_goal()
+            time.sleep(1)
+
+            # ======================================== 拿取刀具
+
+            # 刀具拾取点位1上方
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(10)
+            time.sleep(3)
+
+            print "============ Press `Enter` to open a finger ..."
+            # yumi.right_fingerI_wait_open_judge()
+            raw_input()
+            yumi.right_gripper_go_to_open_goal()
+            time.sleep(1)
+
+            # 刀具拾取点位1下
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(11)
+            time.sleep(3)
+
+            print "============ Press `Enter` to close a finger ..."
+            # yumi.right_fingerI_wait_close_judge()
+            raw_input()
+            yumi.right_gripper_go_to_close_goal()
+            time.sleep(1)
+
+            # 刀具拾取点位1上方
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(10)
+            time.sleep(3)
+
+            # 刀具夹取上方到放置点上方的过渡点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(9)
+            time.sleep(3)
+
+            # 刀具拔出点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(6)
+            time.sleep(3)
+
+            # 刀具夹取点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(5)
+            time.sleep(3)
+
+            print "============ Press `Enter` to open a finger ..."
+            # yumi.right_fingerI_wait_open_judge()
+            raw_input()
+            yumi.right_gripper_go_to_open_goal()
+            time.sleep(1)
+
+            # 刀具夹取上方到放置点上方的过渡点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(9)
+            time.sleep(3)
+
+            print "============ Press `Enter` to close a finger ..."
+            # yumi.right_fingerI_wait_close_judge()
+            raw_input()
+            yumi.right_gripper_go_to_close_goal()
+            time.sleep(1)
+
+            # ===================================================== 插销
+
+            # 销放置孔位上方点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(3)
+            time.sleep(3)
+
+            print "============ Press `Enter` to open a finger ..."
+            # yumi.right_fingerI_wait_open_judge()
+            raw_input()
+            yumi.right_gripper_go_to_open_goal()
+            time.sleep(1)
+
+            # 销放置孔位点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(4)
+            time.sleep(3)
+
+            print "============ Press `Enter` to close a finger ..."
+            # yumi.right_fingerI_wait_close_judge()
+            raw_input()
+            yumi.right_gripper_go_to_close_goal()
+            time.sleep(1)
+
+            # 销放置孔位上方点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(3)
+            time.sleep(3)
+
+            # 销拔出点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(2)
+            time.sleep(3)
+
+            # 销夹取点
+            print "============ Press `Enter` to execute a right arm using a joint goal1 ..."
+            # yumi.right_fingerT_wait_judge()
+            raw_input()
+            yumi.right_arm_go_to_joint_goal(1)
+            time.sleep(3)
+
 
 
 
