@@ -1,20 +1,58 @@
 <?xml version="1.0"?>
-<robot name="yumi" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <!-- Import Rviz colors -->
-  <xacro:include filename="$(find yumi_description)/urdf/materials.xacro" />
-  <!-- Import utilities -->
-  <xacro:include filename="$(find yumi_description)/urdf/utilities.xacro" />
-  <!--Import the yumi macro -->
+<!-- 
+  PROGRAMMER: Frederick Wachter
+  DATE CREATED: 2016-05-30
+  PURPOSE: Import necessary files to build YuMi URDF with workspace
+
+  NECESSARY INPUTS FOR VI SENSOR:
+    - enable_cameras: true/false
+    - enable_depth: true/false
+    - enable_ground_truth: true/false
+-->
+
+<robot name="yumi" xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+  <!--                  		   -->
+  <!--         IMPORTS         -->
+  <!--                  		   -->
+
+  <!-- Import Colors -->
+  <xacro:include filename="$(find yumi_description)/urdf/materials.xacro"/>
+
+  <!-- Import Constants and Modeling Macros -->
+  <xacro:include filename="$(find yumi_description)/urdf/utilities.xacro"/>
+
+  <!-- Import Workspace -->
+  <xacro:include filename="$(find yumi_description)/urdf/workspace.xacro"/>
+
+  <!-- Import YuMi -->
   <xacro:include filename="$(find yumi_description)/urdf/yumi.xacro"/>
- <!-- Import Gazebo plugins -->
-  <xacro:include filename="$(find yumi_description)/gazebo/gazebo.urdf.xacro"/>
 
-  <!-- Fix to world just for testing -->
-  <link name="world"/>
+  <!-- Import Gazebo Plugins -->
+  <xacro:include filename="$(find yumi_description)/urdf/gazebo.urdf.xacro"/>
 
-  <!--yumi-->
-  <xacro:yumi name="yumi" hardware_interface="$(arg prefix)" parent="world">
-    <origin xyz="0 0 0.1" rpy="0 0 0" />
+
+  <!--                  		   -->
+  <!--     LINK DEFINITIONS    -->
+  <!--                  		   -->
+
+  <!-- Fixed Link for Entire Workspace -->
+  <link name="workspace"/>
+
+
+  <!--                  		   -->
+  <!--    MACRO DEFINITIONS    -->
+  <!--                  		   -->
+
+  <!-- Set defaults -->
+
+  <!-- Define Macros for Workspace Import -->
+  <xacro:workspace stand_parent="yumi_body" table_parent="workspace"></xacro:workspace>
+
+  <!-- Define Macros for YuMi Import -->
+  <xacro:yumi name="yumi" hardware_interface="${hardware_interface}" parent="table_main">
+	  <origin xyz="0 0 0" rpy="0 0 0"/> <!-- Bring bottom of YuMi to (x,y) plane -->
   </xacro:yumi>
 
 </robot>

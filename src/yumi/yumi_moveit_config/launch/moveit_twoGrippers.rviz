@@ -244,7 +244,7 @@ Visualization Manager:
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
         Planning Group: right_arm
-        Query Goal State: false
+        Query Goal State: true
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 0.600000024
@@ -412,10 +412,6 @@ Visualization Manager:
           Value: false
         gripper_l_base:
           Value: false
-        gripper_l_finger_l:
-          Value: false
-        gripper_l_finger_r:
-          Value: false
         gripper_l_tcp:
           Value: false
         gripper_r_base:
@@ -483,10 +479,6 @@ Visualization Manager:
                         yumi_link_6_l:
                           yumi_link_7_l:
                             gripper_l_base:
-                              gripper_l_finger_l:
-                                {}
-                              gripper_l_finger_r:
-                                {}
                               gripper_l_tcp:
                                 {}
               yumi_link_1_r:

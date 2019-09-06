@@ -26,12 +26,8 @@
     <param name="robot_ip_address" type="str" value="$(arg robot_ip)"/>
     <param name="J23_coupled" type="bool" value="$(arg J23_coupled)"/>
 
-    <group unless="$(arg two_grippers)"> <!-- if using camera arm -->
-      <rosparam command="load" file="$(find yumi_support)/config/camera_arm_joint_names_left.yaml"/>
-    </group>
-    <group if="$(arg two_grippers)"> <!-- if using two grippers -->
-      <rosparam command="load" file="$(find yumi_support)/config/two_grippers_joint_names_left.yaml"/>
-    </group>
+    <!-- using camera arm, the same as no grippers of left arm -->
+    <rosparam command="load" file="$(find yumi_support)/config/camera_arm_joint_names_left.yaml"/>
     
     <node pkg="abb_driver" type="robot_state" name="robot_state">
       <param name="port" value="11002"/>
@@ -50,12 +46,8 @@
     <param name="robot_ip_address" type="str" value="$(arg robot_ip)"/>
     <param name="J23_coupled" type="bool" value="$(arg J23_coupled)"/>
 
-    <group unless="$(arg two_grippers)"> <!-- if using camera arm -->
-      <rosparam command="load" file="$(find yumi_support)/config/camera_arm_joint_names_right.yaml"/>
-    </group>
-    <group if="$(arg two_grippers)"> <!-- if using two grippers -->
-      <rosparam command="load" file="$(find yumi_support)/config/two_grippers_joint_names_right.yaml"/>
-    </group>
+   <!-- if using no grippers right arm -->
+    <rosparam command="load" file="$(find yumi_support)/config/nogrippers_arm_joint_names_right.yaml"/>
     
     <node pkg="abb_driver" type="robot_state" name="robot_state">
       <param name="port" value="12002"/>
