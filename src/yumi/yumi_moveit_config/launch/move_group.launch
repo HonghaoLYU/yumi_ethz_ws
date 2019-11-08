@@ -74,7 +74,7 @@
 
   <!--直接关掉监视轨迹执行状况的一个monitoring，吕鸿昊修改(added)于20190118-->
   <param name="trajectory_execution/execution_duration_monitoring" value="false"/>
-  <param name="trajectory_execution/allowed_execution_duration_scaling" value="10"/> //允许轨迹执行时间的一个放大倍数，可以根据实际情况自行修改 
+  <param name="trajectory_execution/allowed_execution_duration_scaling" value="1"/> //允许轨迹执行时间的一个放大倍数，可以根据实际情况自行修改 
   <param name="trajectory_execution/allowed_goal_duration_margin" value="0.5"/> //超时的一个百分比范围
 
 </launch>

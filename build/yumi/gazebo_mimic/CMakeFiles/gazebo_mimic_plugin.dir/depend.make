@@ -39,6 +39,7 @@ yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mim
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/gazebo-7/gazebo/msgs/MessageTypes.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/gazebo-7/gazebo/msgs/MsgFactory.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/gazebo-7/gazebo/msgs/altimeter.pb.h
+yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/gazebo-7/gazebo/msgs/any.pb.h
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/gazebo-7/gazebo/msgs/axis.pb.h
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/gazebo-7/gazebo/msgs/battery.pb.h
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/gazebo-7/gazebo/msgs/boxgeom.pb.h
@@ -221,9 +222,11 @@ yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mim
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/Frustum.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/Helpers.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/IndexException.hh
+yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/Inertial.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/Kmeans.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/Line2.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/Line3.hh
+yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/MassMatrix3.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/Matrix3.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/Matrix4.hh
 yumi/gazebo_mimic/CMakeFiles/gazebo_mimic_plugin.dir/src/gazebo_mimic_plugin/mimic_plugin.cpp.o: /usr/include/ignition/math2/ignition/math/Plane.hh
