@@ -642,3 +642,99 @@ make[1]: Leaving directory '/home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp'
 
 Source file was:
 int main() { return 0; }
+Performing C SOURCE FILE Test OpenMP_FLAG_DETECTED succeeded with the following output:
+Change Dir: /home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fd598/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fd598.dir/build.make CMakeFiles/cmTC_fd598.dir/build
+make[1]: Entering directory '/home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fd598.dir/src.c.o
+/usr/bin/cc    -DOpenMP_FLAG_DETECTED -fopenmp   -o CMakeFiles/cmTC_fd598.dir/src.c.o   -c /home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_fd598
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd598.dir/link.txt --verbose=1
+/usr/bin/cc   -DOpenMP_FLAG_DETECTED -fopenmp    CMakeFiles/cmTC_fd598.dir/src.c.o  -o cmTC_fd598 -rdynamic 
+make[1]: Leaving directory '/home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <omp.h>
+int main() {
+#ifdef _OPENMP
+  return 0;
+#else
+  breaks_on_purpose
+#endif
+}
+
+Performing C++ SOURCE FILE Test OpenMP_FLAG_DETECTED succeeded with the following output:
+Change Dir: /home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_585f4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_585f4.dir/build.make CMakeFiles/cmTC_585f4.dir/build
+make[1]: Entering directory '/home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_585f4.dir/src.cxx.o
+/usr/bin/c++     -DBT_USE_DOUBLE_PRECISION -Wall -Wuninitialized -Winit-self -Wunused-function -Wunused-label -Wunused-variable -Wunused-but-set-variable -Wunused-but-set-parameter -Warray-bounds -Wtype-limits -Wreturn-type -Wsequence-point -Wparentheses -Wmissing-braces -Wchar-subscripts -Wswitch -Wwrite-strings -Wenum-compare -Wempty-body -std=c++11 -DOpenMP_FLAG_DETECTED -fopenmp   -o CMakeFiles/cmTC_585f4.dir/src.cxx.o -c /home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_585f4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_585f4.dir/link.txt --verbose=1
+/usr/bin/c++    -DBT_USE_DOUBLE_PRECISION -Wall -Wuninitialized -Winit-self -Wunused-function -Wunused-label -Wunused-variable -Wunused-but-set-variable -Wunused-but-set-parameter -Warray-bounds -Wtype-limits -Wreturn-type -Wsequence-point -Wparentheses -Wmissing-braces -Wchar-subscripts -Wswitch -Wwrite-strings -Wenum-compare -Wempty-body -std=c++11 -DOpenMP_FLAG_DETECTED -fopenmp    CMakeFiles/cmTC_585f4.dir/src.cxx.o  -o cmTC_585f4 -rdynamic 
+make[1]: Leaving directory '/home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <omp.h>
+int main() {
+#ifdef _OPENMP
+  return 0;
+#else
+  breaks_on_purpose
+#endif
+}
+
+Determining if the CL_VERSION_2_0 exist passed with the following output:
+Change Dir: /home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3aafd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3aafd.dir/build.make CMakeFiles/cmTC_3aafd.dir/build
+make[1]: Entering directory '/home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3aafd.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_3aafd.dir/CheckSymbolExists.c.o   -c /home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_3aafd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3aafd.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_3aafd.dir/CheckSymbolExists.c.o  -o cmTC_3aafd -rdynamic 
+make[1]: Leaving directory '/home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp'
+
+File /home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include </usr/include/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_0
+  return ((int*)(&CL_VERSION_2_0))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Performing C SOURCE FILE Test OpenCL_C_WORKS succeeded with the following output:
+Change Dir: /home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9ee91/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9ee91.dir/build.make CMakeFiles/cmTC_9ee91.dir/build
+make[1]: Entering directory '/home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9ee91.dir/src.c.o
+/usr/bin/cc   -I/include/internal  -DOpenCL_C_WORKS   -o CMakeFiles/cmTC_9ee91.dir/src.c.o   -c /home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9ee91
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ee91.dir/link.txt --verbose=1
+/usr/bin/cc   -DOpenCL_C_WORKS    CMakeFiles/cmTC_9ee91.dir/src.c.o  -o cmTC_9ee91 -rdynamic /usr/lib/x86_64-linux-gnu/libOpenCL.so 
+make[1]: Leaving directory '/home/yumi/yumi_ws/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <CL/cl.h>
+int main() {
+  clGetPlatformIDs(0, 0, 0);
+  return 0;
+}

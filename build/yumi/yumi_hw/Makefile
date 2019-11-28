@@ -88,17 +88,6 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -132,6 +121,17 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -211,229 +211,19 @@ yumi_hw_genpy/fast:
 .PHONY : yumi_hw_genpy/fast
 
 # Convenience name for target.
-yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/rule
+yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-yumi_hw_generate_messages_py: yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/rule
+controller_manager_msgs_generate_messages_lisp: yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : yumi_hw_generate_messages_py
+.PHONY : controller_manager_msgs_generate_messages_lisp
 
 # fast build rule for target.
-yumi_hw_generate_messages_py/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/build
-.PHONY : yumi_hw_generate_messages_py/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/rule
-
-# Convenience name for target.
-yumi_hw_gennodejs: yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/rule
-
-.PHONY : yumi_hw_gennodejs
-
-# fast build rule for target.
-yumi_hw_gennodejs/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/build
-.PHONY : yumi_hw_gennodejs/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/rule
-
-# Convenience name for target.
-yumi_hw_genlisp: yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/rule
-
-.PHONY : yumi_hw_genlisp
-
-# fast build rule for target.
-yumi_hw_genlisp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/build
-.PHONY : yumi_hw_genlisp/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_nodejs: yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-controller_manager_msgs_generate_messages_py: yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
-
-.PHONY : controller_manager_msgs_generate_messages_py
-
-# fast build rule for target.
-controller_manager_msgs_generate_messages_py/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build
-.PHONY : controller_manager_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-yumi_hw_generate_messages_lisp: yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/rule
-
-.PHONY : yumi_hw_generate_messages_lisp
-
-# fast build rule for target.
-yumi_hw_generate_messages_lisp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/build
-.PHONY : yumi_hw_generate_messages_lisp/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_nodejs: yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
-
-.PHONY : control_toolbox_generate_messages_nodejs
-
-# fast build rule for target.
-control_toolbox_generate_messages_nodejs/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build
-.PHONY : control_toolbox_generate_messages_nodejs/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-yumi_hw_generate_messages_nodejs: yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/rule
-
-.PHONY : yumi_hw_generate_messages_nodejs
-
-# fast build rule for target.
-yumi_hw_generate_messages_nodejs/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/build
-.PHONY : yumi_hw_generate_messages_nodejs/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-controller_manager_msgs_generate_messages_nodejs: yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : controller_manager_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-controller_manager_msgs_generate_messages_nodejs/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build
-.PHONY : controller_manager_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/rule
-
-# Convenience name for target.
-yumi_hw_generate_messages: yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/rule
-
-.PHONY : yumi_hw_generate_messages
-
-# fast build rule for target.
-yumi_hw_generate_messages/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/build
-.PHONY : yumi_hw_generate_messages/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/rule
-
-# Convenience name for target.
-yumi_hw_gencpp: yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/rule
-
-.PHONY : yumi_hw_gencpp
-
-# fast build rule for target.
-yumi_hw_gencpp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/build
-.PHONY : yumi_hw_gencpp/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_py: yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
-
-.PHONY : control_toolbox_generate_messages_py
-
-# fast build rule for target.
-control_toolbox_generate_messages_py/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/build
-.PHONY : control_toolbox_generate_messages_py/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/rule
-
-# Convenience name for target.
-yumi_hw_geneus: yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/rule
-
-.PHONY : yumi_hw_geneus
-
-# fast build rule for target.
-yumi_hw_geneus/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/build
-.PHONY : yumi_hw_geneus/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/rule
-
-# Convenience name for target.
-control_toolbox_gencfg: yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/rule
-
-.PHONY : control_toolbox_gencfg
-
-# fast build rule for target.
-control_toolbox_gencfg/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/build
-.PHONY : control_toolbox_gencfg/fast
+controller_manager_msgs_generate_messages_lisp/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build
+.PHONY : controller_manager_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule:
@@ -451,81 +241,6 @@ controller_manager_msgs_generate_messages_eus/fast:
 .PHONY : controller_manager_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_cpp: yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
-
-.PHONY : control_toolbox_generate_messages_cpp
-
-# fast build rule for target.
-control_toolbox_generate_messages_cpp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build
-.PHONY : control_toolbox_generate_messages_cpp/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_lisp: yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
-
-.PHONY : control_toolbox_generate_messages_lisp
-
-# fast build rule for target.
-control_toolbox_generate_messages_lisp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build
-.PHONY : control_toolbox_generate_messages_lisp/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule:
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule
 .PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule
@@ -539,21 +254,6 @@ control_toolbox_generate_messages_eus: yumi/yumi_hw/CMakeFiles/control_toolbox_g
 control_toolbox_generate_messages_eus/fast:
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_eus.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_eus.dir/build
 .PHONY : control_toolbox_generate_messages_eus/fast
-
-# Convenience name for target.
-yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make yumi/yumi_hw/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
 
 # Convenience name for target.
 yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule:
@@ -586,19 +286,154 @@ _yumi_hw_generate_messages_check_deps_YumiGrasp/fast:
 .PHONY : _yumi_hw_generate_messages_check_deps_YumiGrasp/fast
 
 # Convenience name for target.
-yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
-.PHONY : yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
+yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/rule
 
 # Convenience name for target.
-controller_manager_msgs_generate_messages_lisp: yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
+yumi_hw_generate_messages: yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/rule
 
-.PHONY : controller_manager_msgs_generate_messages_lisp
+.PHONY : yumi_hw_generate_messages
 
 # fast build rule for target.
-controller_manager_msgs_generate_messages_lisp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build
-.PHONY : controller_manager_msgs_generate_messages_lisp/fast
+yumi_hw_generate_messages/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages.dir/build
+.PHONY : yumi_hw_generate_messages/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/rule
+
+# Convenience name for target.
+yumi_hw_gencpp: yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/rule
+
+.PHONY : yumi_hw_gencpp
+
+# fast build rule for target.
+yumi_hw_gencpp/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_gencpp.dir/build
+.PHONY : yumi_hw_gencpp/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+control_toolbox_generate_messages_nodejs: yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
+
+.PHONY : control_toolbox_generate_messages_nodejs
+
+# fast build rule for target.
+control_toolbox_generate_messages_nodejs/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build
+.PHONY : control_toolbox_generate_messages_nodejs/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+yumi_hw_generate_messages_lisp: yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/rule
+
+.PHONY : yumi_hw_generate_messages_lisp
+
+# fast build rule for target.
+yumi_hw_generate_messages_lisp/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_lisp.dir/build
+.PHONY : yumi_hw_generate_messages_lisp/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
+
+# Convenience name for target.
+control_toolbox_generate_messages_py: yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
+
+.PHONY : control_toolbox_generate_messages_py
+
+# fast build rule for target.
+control_toolbox_generate_messages_py/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_py.dir/build
+.PHONY : control_toolbox_generate_messages_py/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_nodejs: yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_nodejs/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build
+.PHONY : controller_manager_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+yumi_hw_generate_messages_nodejs: yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/rule
+
+.PHONY : yumi_hw_generate_messages_nodejs
+
+# fast build rule for target.
+yumi_hw_generate_messages_nodejs/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_nodejs.dir/build
+.PHONY : yumi_hw_generate_messages_nodejs/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+control_toolbox_generate_messages_cpp: yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
+
+.PHONY : control_toolbox_generate_messages_cpp
+
+# fast build rule for target.
+control_toolbox_generate_messages_cpp/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build
+.PHONY : control_toolbox_generate_messages_cpp/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+control_toolbox_generate_messages_lisp: yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
+
+.PHONY : control_toolbox_generate_messages_lisp
+
+# fast build rule for target.
+control_toolbox_generate_messages_lisp/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build
+.PHONY : control_toolbox_generate_messages_lisp/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_py: yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_py
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_py/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make yumi/yumi_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build
+.PHONY : controller_manager_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 yumi/yumi_hw/CMakeFiles/yumi_gripper_node.dir/rule:
@@ -644,6 +479,81 @@ yumi_hw_generate_messages_eus: yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages
 yumi_hw_generate_messages_eus/fast:
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_eus.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_eus.dir/build
 .PHONY : yumi_hw_generate_messages_eus/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/rule
+
+# Convenience name for target.
+yumi_hw_gennodejs: yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/rule
+
+.PHONY : yumi_hw_gennodejs
+
+# fast build rule for target.
+yumi_hw_gennodejs/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_gennodejs.dir/build
+.PHONY : yumi_hw_gennodejs/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/rule
+
+# Convenience name for target.
+yumi_hw_generate_messages_py: yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/rule
+
+.PHONY : yumi_hw_generate_messages_py
+
+# fast build rule for target.
+yumi_hw_generate_messages_py/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_generate_messages_py.dir/build
+.PHONY : yumi_hw_generate_messages_py/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/rule
+
+# Convenience name for target.
+control_toolbox_gencfg: yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/rule
+
+.PHONY : control_toolbox_gencfg
+
+# fast build rule for target.
+control_toolbox_gencfg/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/build.make yumi/yumi_hw/CMakeFiles/control_toolbox_gencfg.dir/build
+.PHONY : control_toolbox_gencfg/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/rule
+
+# Convenience name for target.
+yumi_hw_geneus: yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/rule
+
+.PHONY : yumi_hw_geneus
+
+# fast build rule for target.
+yumi_hw_geneus/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_geneus.dir/build
+.PHONY : yumi_hw_geneus/fast
+
+# Convenience name for target.
+yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/rule
+.PHONY : yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/rule
+
+# Convenience name for target.
+yumi_hw_genlisp: yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/rule
+
+.PHONY : yumi_hw_genlisp
+
+# fast build rule for target.
+yumi_hw_genlisp/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/build.make yumi/yumi_hw/CMakeFiles/yumi_hw_genlisp.dir/build
+.PHONY : yumi_hw_genlisp/fast
 
 src/yumi_gripper_node.o: src/yumi_gripper_node.cpp.o
 
@@ -762,42 +672,36 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... install/local"
+	@echo "... install/strip"
 	@echo "... yumi_hw_ifce_node"
 	@echo "... yumi_hw"
 	@echo "... yumi_hw_genpy"
-	@echo "... yumi_hw_generate_messages_py"
-	@echo "... yumi_hw_gennodejs"
-	@echo "... yumi_hw_genlisp"
-	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... controller_manager_msgs_generate_messages_py"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... yumi_hw_generate_messages_lisp"
-	@echo "... control_toolbox_generate_messages_nodejs"
-	@echo "... yumi_hw_generate_messages_nodejs"
-	@echo "... controller_manager_msgs_generate_messages_nodejs"
-	@echo "... yumi_hw_generate_messages"
-	@echo "... yumi_hw_gencpp"
-	@echo "... control_toolbox_generate_messages_py"
-	@echo "... test"
-	@echo "... yumi_hw_geneus"
-	@echo "... control_toolbox_gencfg"
+	@echo "... controller_manager_msgs_generate_messages_lisp"
 	@echo "... controller_manager_msgs_generate_messages_eus"
-	@echo "... control_toolbox_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... install/strip"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... control_toolbox_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... control_toolbox_generate_messages_eus"
-	@echo "... dynamic_reconfigure_gencfg"
 	@echo "... install"
 	@echo "... controller_manager_msgs_generate_messages_cpp"
 	@echo "... _yumi_hw_generate_messages_check_deps_YumiGrasp"
-	@echo "... controller_manager_msgs_generate_messages_lisp"
+	@echo "... yumi_hw_generate_messages"
+	@echo "... yumi_hw_gencpp"
+	@echo "... control_toolbox_generate_messages_nodejs"
+	@echo "... yumi_hw_generate_messages_lisp"
+	@echo "... control_toolbox_generate_messages_py"
+	@echo "... controller_manager_msgs_generate_messages_nodejs"
+	@echo "... yumi_hw_generate_messages_nodejs"
+	@echo "... control_toolbox_generate_messages_cpp"
+	@echo "... control_toolbox_generate_messages_lisp"
+	@echo "... controller_manager_msgs_generate_messages_py"
 	@echo "... yumi_gripper_node"
 	@echo "... yumi_hw_generate_messages_cpp"
 	@echo "... yumi_hw_generate_messages_eus"
+	@echo "... yumi_hw_gennodejs"
+	@echo "... yumi_hw_generate_messages_py"
+	@echo "... test"
+	@echo "... control_toolbox_gencfg"
+	@echo "... yumi_hw_geneus"
+	@echo "... yumi_hw_genlisp"
 	@echo "... src/yumi_gripper_node.o"
 	@echo "... src/yumi_gripper_node.i"
 	@echo "... src/yumi_gripper_node.s"

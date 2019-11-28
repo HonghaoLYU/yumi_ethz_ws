@@ -66,6 +66,28 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -89,17 +111,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -111,27 +122,16 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target install/strip
+install/strip/fast: install/strip
 
-.PHONY : test/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,171 +166,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/rule
-
-# Convenience name for target.
-industrial_robot_client: industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/rule
-
-.PHONY : industrial_robot_client
-
-# fast build rule for target.
-industrial_robot_client/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build
-.PHONY : industrial_robot_client/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/rule
-
-# Convenience name for target.
-industrial_robot_client_dummy: industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/rule
-
-.PHONY : industrial_robot_client_dummy
-
-# fast build rule for target.
-industrial_robot_client_dummy/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/build
-.PHONY : industrial_robot_client_dummy/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/rule
-
-# Convenience name for target.
-robot_state: industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/rule
-
-.PHONY : robot_state
-
-# fast build rule for target.
-robot_state/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build
-.PHONY : robot_state/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_py: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_py
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_py/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
-.PHONY : actionlib_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/rule
-
-# Convenience name for target.
-robot_state_bswap: industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/rule
-
-.PHONY : robot_state_bswap
-
-# fast build rule for target.
-robot_state_bswap/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/build
-.PHONY : robot_state_bswap/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/rule
-
-# Convenience name for target.
-run_tests_industrial_robot_client_roslaunch-check: industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/rule
-
-.PHONY : run_tests_industrial_robot_client_roslaunch-check
-
-# fast build rule for target.
-run_tests_industrial_robot_client_roslaunch-check/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/build
-.PHONY : run_tests_industrial_robot_client_roslaunch-check/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_lisp: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/rule
-
-# Convenience name for target.
-run_tests_industrial_robot_client_gtest: industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/rule
-
-.PHONY : run_tests_industrial_robot_client_gtest
-
-# fast build rule for target.
-run_tests_industrial_robot_client_gtest/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/build
-.PHONY : run_tests_industrial_robot_client_gtest/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_cpp: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_generate_messages_cpp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_cpp.dir/build
-.PHONY : actionlib_generate_messages_cpp/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
 industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule:
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule
 .PHONY : industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule
@@ -344,36 +179,6 @@ _run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml: indu
 _run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml/fast:
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/build
 .PHONY : _run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_py.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_py.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_py: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-.PHONY : actionlib_generate_messages_py
-
-# fast build rule for target.
-actionlib_generate_messages_py/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_py.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_py.dir/build
-.PHONY : actionlib_generate_messages_py/fast
 
 # Convenience name for target.
 industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_roslaunch-check.dir/rule:
@@ -391,19 +196,184 @@ _run_tests_industrial_robot_client_roslaunch-check/fast:
 .PHONY : _run_tests_industrial_robot_client_roslaunch-check/fast
 
 # Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_nodejs: industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+run_tests_industrial_robot_client_roslaunch-check: industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/rule
 
-.PHONY : sensor_msgs_generate_messages_nodejs
+.PHONY : run_tests_industrial_robot_client_roslaunch-check
 
 # fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
+run_tests_industrial_robot_client_roslaunch-check/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check.dir/build
+.PHONY : run_tests_industrial_robot_client_roslaunch-check/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/rule
+
+# Convenience name for target.
+clean_test_results_industrial_robot_client: industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/rule
+
+.PHONY : clean_test_results_industrial_robot_client
+
+# fast build rule for target.
+clean_test_results_industrial_robot_client/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/build
+.PHONY : clean_test_results_industrial_robot_client/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/rule
+
+# Convenience name for target.
+motion_streaming_interface: industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/rule
+
+.PHONY : motion_streaming_interface
+
+# fast build rule for target.
+motion_streaming_interface/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/build
+.PHONY : motion_streaming_interface/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+control_msgs_generate_messages_py: industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/rule
+
+.PHONY : control_msgs_generate_messages_py
+
+# fast build rule for target.
+control_msgs_generate_messages_py/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/build
+.PHONY : control_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/rule
+
+# Convenience name for target.
+industrial_robot_client_bswap: industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/rule
+
+.PHONY : industrial_robot_client_bswap
+
+# fast build rule for target.
+industrial_robot_client_bswap/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build
+.PHONY : industrial_robot_client_bswap/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/rule
+
+# Convenience name for target.
+robot_state_bswap: industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/rule
+
+.PHONY : robot_state_bswap
+
+# fast build rule for target.
+robot_state_bswap/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/build
+.PHONY : robot_state_bswap/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/rule
+
+# Convenience name for target.
+_run_tests_industrial_robot_client_gtest: industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/rule
+
+.PHONY : _run_tests_industrial_robot_client_gtest
+
+# fast build rule for target.
+_run_tests_industrial_robot_client_gtest/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/build
+.PHONY : _run_tests_industrial_robot_client_gtest/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule
+
+# Convenience name for target.
+run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml: industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule
+
+.PHONY : run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml
+
+# fast build rule for target.
+run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/build
+.PHONY : run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/rule
+
+# Convenience name for target.
+industrial_robot_client: industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/rule
+
+.PHONY : industrial_robot_client
+
+# fast build rule for target.
+industrial_robot_client/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build
+.PHONY : industrial_robot_client/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/rule
+
+# Convenience name for target.
+robot_state: industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/rule
+
+.PHONY : robot_state
+
+# fast build rule for target.
+robot_state/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build
+.PHONY : robot_state/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/rule
+
+# Convenience name for target.
+industrial_robot_client_dummy: industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/rule
+
+.PHONY : industrial_robot_client_dummy
+
+# fast build rule for target.
+industrial_robot_client_dummy/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_dummy.dir/build
+.PHONY : industrial_robot_client_dummy/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/rule
+
+# Convenience name for target.
+motion_streaming_interface_bswap: industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/rule
+
+.PHONY : motion_streaming_interface_bswap
+
+# fast build rule for target.
+motion_streaming_interface_bswap/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/build
+.PHONY : motion_streaming_interface_bswap/fast
 
 # Convenience name for target.
 industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule:
@@ -421,109 +391,19 @@ control_msgs_generate_messages_cpp/fast:
 .PHONY : control_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
+industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/rule
 
 # Convenience name for target.
-control_msgs_generate_messages_nodejs: industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
+joint_trajectory_action: industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/rule
 
-.PHONY : control_msgs_generate_messages_nodejs
+.PHONY : joint_trajectory_action
 
 # fast build rule for target.
-control_msgs_generate_messages_nodejs/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build
-.PHONY : control_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_eus: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_eus
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_lisp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_lisp: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_generate_messages_lisp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_lisp.dir/build
-.PHONY : actionlib_generate_messages_lisp/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_eus: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_generate_messages_eus
-
-# fast build rule for target.
-actionlib_generate_messages_eus/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_eus.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_eus.dir/build
-.PHONY : actionlib_generate_messages_eus/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_nodejs: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_generate_messages_nodejs/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
-.PHONY : actionlib_generate_messages_nodejs/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_cpp: industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_cpp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
-.PHONY : actionlib_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_eus: industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_eus
-
-# fast build rule for target.
-sensor_msgs_generate_messages_eus/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-.PHONY : sensor_msgs_generate_messages_eus/fast
+joint_trajectory_action/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/build
+.PHONY : joint_trajectory_action/fast
 
 # Convenience name for target.
 industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_eus.dir/rule:
@@ -556,6 +436,36 @@ run_tests_industrial_robot_client/fast:
 .PHONY : run_tests_industrial_robot_client/fast
 
 # Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
+
+# Convenience name for target.
+run_tests_industrial_robot_client_gtest_utest_robot_client: industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
+
+.PHONY : run_tests_industrial_robot_client_gtest_utest_robot_client
+
+# fast build rule for target.
+run_tests_industrial_robot_client_gtest_utest_robot_client/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/build
+.PHONY : run_tests_industrial_robot_client_gtest_utest_robot_client/fast
+
+# Convenience name for target.
+industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+control_msgs_generate_messages_nodejs: industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : control_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+control_msgs_generate_messages_nodejs/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build
+.PHONY : control_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
 industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule:
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
 .PHONY : industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
@@ -584,141 +494,6 @@ motion_download_interface_bswap: industrial_driver/industrial_robot_client/CMake
 motion_download_interface_bswap/fast:
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface_bswap.dir/build
 .PHONY : motion_download_interface_bswap/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/rule
-
-# Convenience name for target.
-joint_trajectory_action: industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/rule
-
-.PHONY : joint_trajectory_action
-
-# fast build rule for target.
-joint_trajectory_action/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/joint_trajectory_action.dir/build
-.PHONY : joint_trajectory_action/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_py: industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-
-.PHONY : control_msgs_generate_messages_py
-
-# fast build rule for target.
-control_msgs_generate_messages_py/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/control_msgs_generate_messages_py.dir/build
-.PHONY : control_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule
-
-# Convenience name for target.
-run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml: industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/rule
-
-.PHONY : run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml
-
-# fast build rule for target.
-run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml.dir/build
-.PHONY : run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/rule
-
-# Convenience name for target.
-industrial_robot_client_bswap: industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/rule
-
-.PHONY : industrial_robot_client_bswap
-
-# fast build rule for target.
-industrial_robot_client_bswap/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build
-.PHONY : industrial_robot_client_bswap/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/rule
-
-# Convenience name for target.
-motion_streaming_interface: industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/rule
-
-.PHONY : motion_streaming_interface
-
-# fast build rule for target.
-motion_streaming_interface/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface.dir/build
-.PHONY : motion_streaming_interface/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/rule
-
-# Convenience name for target.
-motion_download_interface: industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/rule
-
-.PHONY : motion_download_interface
-
-# fast build rule for target.
-motion_download_interface/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/build
-.PHONY : motion_download_interface/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
-
-# Convenience name for target.
-_run_tests_industrial_robot_client_gtest_utest_robot_client: industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
-
-.PHONY : _run_tests_industrial_robot_client_gtest_utest_robot_client
-
-# fast build rule for target.
-_run_tests_industrial_robot_client_gtest_utest_robot_client/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/build
-.PHONY : _run_tests_industrial_robot_client_gtest_utest_robot_client/fast
-
-# Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/rule
-
-# Convenience name for target.
-motion_streaming_interface_bswap: industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/rule
-
-.PHONY : motion_streaming_interface_bswap
-
-# fast build rule for target.
-motion_streaming_interface_bswap/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/motion_streaming_interface_bswap.dir/build
-.PHONY : motion_streaming_interface_bswap/fast
 
 # Convenience name for target.
 industrial_driver/industrial_robot_client/CMakeFiles/utest_robot_client.dir/rule:
@@ -751,49 +526,49 @@ _run_tests_industrial_robot_client/fast:
 .PHONY : _run_tests_industrial_robot_client/fast
 
 # Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/rule
+industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/rule
 
 # Convenience name for target.
-_run_tests_industrial_robot_client_gtest: industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/rule
+run_tests_industrial_robot_client_gtest: industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/rule
 
-.PHONY : _run_tests_industrial_robot_client_gtest
+.PHONY : run_tests_industrial_robot_client_gtest
 
 # fast build rule for target.
-_run_tests_industrial_robot_client_gtest/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest.dir/build
-.PHONY : _run_tests_industrial_robot_client_gtest/fast
+run_tests_industrial_robot_client_gtest/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest.dir/build
+.PHONY : run_tests_industrial_robot_client_gtest/fast
 
 # Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
+industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/rule
 
 # Convenience name for target.
-run_tests_industrial_robot_client_gtest_utest_robot_client: industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
+motion_download_interface: industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/rule
 
-.PHONY : run_tests_industrial_robot_client_gtest_utest_robot_client
+.PHONY : motion_download_interface
 
 # fast build rule for target.
-run_tests_industrial_robot_client_gtest_utest_robot_client/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/run_tests_industrial_robot_client_gtest_utest_robot_client.dir/build
-.PHONY : run_tests_industrial_robot_client_gtest_utest_robot_client/fast
+motion_download_interface/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/motion_download_interface.dir/build
+.PHONY : motion_download_interface/fast
 
 # Convenience name for target.
-industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/rule:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/rule
-.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/rule
+industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f CMakeFiles/Makefile2 industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
+.PHONY : industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
 
 # Convenience name for target.
-clean_test_results_industrial_robot_client: industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/rule
+_run_tests_industrial_robot_client_gtest_utest_robot_client: industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/rule
 
-.PHONY : clean_test_results_industrial_robot_client
+.PHONY : _run_tests_industrial_robot_client_gtest_utest_robot_client
 
 # fast build rule for target.
-clean_test_results_industrial_robot_client/fast:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/clean_test_results_industrial_robot_client.dir/build
-.PHONY : clean_test_results_industrial_robot_client/fast
+_run_tests_industrial_robot_client_gtest_utest_robot_client/fast:
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/_run_tests_industrial_robot_client_gtest_utest_robot_client.dir/build
+.PHONY : _run_tests_industrial_robot_client_gtest_utest_robot_client/fast
 
 industrial_robot_client_dummy.o: industrial_robot_client_dummy.cpp.o
 
@@ -915,8 +690,8 @@ src/generic_robot_state_node.o: src/generic_robot_state_node.cpp.o
 
 # target to build an object file
 src/generic_robot_state_node.cpp.o:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/src/generic_robot_state_node.cpp.o
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/src/generic_robot_state_node.cpp.o
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/src/generic_robot_state_node.cpp.o
 .PHONY : src/generic_robot_state_node.cpp.o
 
 src/generic_robot_state_node.i: src/generic_robot_state_node.cpp.i
@@ -925,8 +700,8 @@ src/generic_robot_state_node.i: src/generic_robot_state_node.cpp.i
 
 # target to preprocess a source file
 src/generic_robot_state_node.cpp.i:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/src/generic_robot_state_node.cpp.i
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/src/generic_robot_state_node.cpp.i
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/src/generic_robot_state_node.cpp.i
 .PHONY : src/generic_robot_state_node.cpp.i
 
 src/generic_robot_state_node.s: src/generic_robot_state_node.cpp.s
@@ -935,8 +710,8 @@ src/generic_robot_state_node.s: src/generic_robot_state_node.cpp.s
 
 # target to generate assembly for a file
 src/generic_robot_state_node.cpp.s:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/src/generic_robot_state_node.cpp.s
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state_bswap.dir/src/generic_robot_state_node.cpp.s
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/robot_state.dir/src/generic_robot_state_node.cpp.s
 .PHONY : src/generic_robot_state_node.cpp.s
 
 src/joint_relay_handler.o: src/joint_relay_handler.cpp.o
@@ -945,8 +720,8 @@ src/joint_relay_handler.o: src/joint_relay_handler.cpp.o
 
 # target to build an object file
 src/joint_relay_handler.cpp.o:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_relay_handler.cpp.o
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_relay_handler.cpp.o
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_relay_handler.cpp.o
 .PHONY : src/joint_relay_handler.cpp.o
 
 src/joint_relay_handler.i: src/joint_relay_handler.cpp.i
@@ -955,8 +730,8 @@ src/joint_relay_handler.i: src/joint_relay_handler.cpp.i
 
 # target to preprocess a source file
 src/joint_relay_handler.cpp.i:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_relay_handler.cpp.i
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_relay_handler.cpp.i
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_relay_handler.cpp.i
 .PHONY : src/joint_relay_handler.cpp.i
 
 src/joint_relay_handler.s: src/joint_relay_handler.cpp.s
@@ -965,8 +740,8 @@ src/joint_relay_handler.s: src/joint_relay_handler.cpp.s
 
 # target to generate assembly for a file
 src/joint_relay_handler.cpp.s:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_relay_handler.cpp.s
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_relay_handler.cpp.s
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_relay_handler.cpp.s
 .PHONY : src/joint_relay_handler.cpp.s
 
 src/joint_trajectory_action.o: src/joint_trajectory_action.cpp.o
@@ -1002,8 +777,8 @@ src/joint_trajectory_downloader.o: src/joint_trajectory_downloader.cpp.o
 
 # target to build an object file
 src/joint_trajectory_downloader.cpp.o:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_downloader.cpp.o
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_trajectory_downloader.cpp.o
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_downloader.cpp.o
 .PHONY : src/joint_trajectory_downloader.cpp.o
 
 src/joint_trajectory_downloader.i: src/joint_trajectory_downloader.cpp.i
@@ -1012,8 +787,8 @@ src/joint_trajectory_downloader.i: src/joint_trajectory_downloader.cpp.i
 
 # target to preprocess a source file
 src/joint_trajectory_downloader.cpp.i:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_downloader.cpp.i
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_trajectory_downloader.cpp.i
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_downloader.cpp.i
 .PHONY : src/joint_trajectory_downloader.cpp.i
 
 src/joint_trajectory_downloader.s: src/joint_trajectory_downloader.cpp.s
@@ -1022,8 +797,8 @@ src/joint_trajectory_downloader.s: src/joint_trajectory_downloader.cpp.s
 
 # target to generate assembly for a file
 src/joint_trajectory_downloader.cpp.s:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_downloader.cpp.s
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_trajectory_downloader.cpp.s
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_downloader.cpp.s
 .PHONY : src/joint_trajectory_downloader.cpp.s
 
 src/joint_trajectory_interface.o: src/joint_trajectory_interface.cpp.o
@@ -1032,8 +807,8 @@ src/joint_trajectory_interface.o: src/joint_trajectory_interface.cpp.o
 
 # target to build an object file
 src/joint_trajectory_interface.cpp.o:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_interface.cpp.o
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_trajectory_interface.cpp.o
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_interface.cpp.o
 .PHONY : src/joint_trajectory_interface.cpp.o
 
 src/joint_trajectory_interface.i: src/joint_trajectory_interface.cpp.i
@@ -1042,8 +817,8 @@ src/joint_trajectory_interface.i: src/joint_trajectory_interface.cpp.i
 
 # target to preprocess a source file
 src/joint_trajectory_interface.cpp.i:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_interface.cpp.i
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_trajectory_interface.cpp.i
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_interface.cpp.i
 .PHONY : src/joint_trajectory_interface.cpp.i
 
 src/joint_trajectory_interface.s: src/joint_trajectory_interface.cpp.s
@@ -1052,8 +827,8 @@ src/joint_trajectory_interface.s: src/joint_trajectory_interface.cpp.s
 
 # target to generate assembly for a file
 src/joint_trajectory_interface.cpp.s:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_interface.cpp.s
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_trajectory_interface.cpp.s
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_interface.cpp.s
 .PHONY : src/joint_trajectory_interface.cpp.s
 
 src/joint_trajectory_streamer.o: src/joint_trajectory_streamer.cpp.o
@@ -1062,8 +837,8 @@ src/joint_trajectory_streamer.o: src/joint_trajectory_streamer.cpp.o
 
 # target to build an object file
 src/joint_trajectory_streamer.cpp.o:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_streamer.cpp.o
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_trajectory_streamer.cpp.o
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_streamer.cpp.o
 .PHONY : src/joint_trajectory_streamer.cpp.o
 
 src/joint_trajectory_streamer.i: src/joint_trajectory_streamer.cpp.i
@@ -1072,8 +847,8 @@ src/joint_trajectory_streamer.i: src/joint_trajectory_streamer.cpp.i
 
 # target to preprocess a source file
 src/joint_trajectory_streamer.cpp.i:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_streamer.cpp.i
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_trajectory_streamer.cpp.i
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_streamer.cpp.i
 .PHONY : src/joint_trajectory_streamer.cpp.i
 
 src/joint_trajectory_streamer.s: src/joint_trajectory_streamer.cpp.s
@@ -1082,8 +857,8 @@ src/joint_trajectory_streamer.s: src/joint_trajectory_streamer.cpp.s
 
 # target to generate assembly for a file
 src/joint_trajectory_streamer.cpp.s:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_streamer.cpp.s
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/joint_trajectory_streamer.cpp.s
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/joint_trajectory_streamer.cpp.s
 .PHONY : src/joint_trajectory_streamer.cpp.s
 
 src/robot_state_interface.o: src/robot_state_interface.cpp.o
@@ -1092,8 +867,8 @@ src/robot_state_interface.o: src/robot_state_interface.cpp.o
 
 # target to build an object file
 src/robot_state_interface.cpp.o:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_state_interface.cpp.o
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/robot_state_interface.cpp.o
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_state_interface.cpp.o
 .PHONY : src/robot_state_interface.cpp.o
 
 src/robot_state_interface.i: src/robot_state_interface.cpp.i
@@ -1102,8 +877,8 @@ src/robot_state_interface.i: src/robot_state_interface.cpp.i
 
 # target to preprocess a source file
 src/robot_state_interface.cpp.i:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_state_interface.cpp.i
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/robot_state_interface.cpp.i
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_state_interface.cpp.i
 .PHONY : src/robot_state_interface.cpp.i
 
 src/robot_state_interface.s: src/robot_state_interface.cpp.s
@@ -1112,8 +887,8 @@ src/robot_state_interface.s: src/robot_state_interface.cpp.s
 
 # target to generate assembly for a file
 src/robot_state_interface.cpp.s:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_state_interface.cpp.s
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/robot_state_interface.cpp.s
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_state_interface.cpp.s
 .PHONY : src/robot_state_interface.cpp.s
 
 src/robot_status_relay_handler.o: src/robot_status_relay_handler.cpp.o
@@ -1122,8 +897,8 @@ src/robot_status_relay_handler.o: src/robot_status_relay_handler.cpp.o
 
 # target to build an object file
 src/robot_status_relay_handler.cpp.o:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_status_relay_handler.cpp.o
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/robot_status_relay_handler.cpp.o
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_status_relay_handler.cpp.o
 .PHONY : src/robot_status_relay_handler.cpp.o
 
 src/robot_status_relay_handler.i: src/robot_status_relay_handler.cpp.i
@@ -1132,8 +907,8 @@ src/robot_status_relay_handler.i: src/robot_status_relay_handler.cpp.i
 
 # target to preprocess a source file
 src/robot_status_relay_handler.cpp.i:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_status_relay_handler.cpp.i
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/robot_status_relay_handler.cpp.i
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_status_relay_handler.cpp.i
 .PHONY : src/robot_status_relay_handler.cpp.i
 
 src/robot_status_relay_handler.s: src/robot_status_relay_handler.cpp.s
@@ -1142,8 +917,8 @@ src/robot_status_relay_handler.s: src/robot_status_relay_handler.cpp.s
 
 # target to generate assembly for a file
 src/robot_status_relay_handler.cpp.s:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_status_relay_handler.cpp.s
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/robot_status_relay_handler.cpp.s
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/robot_status_relay_handler.cpp.s
 .PHONY : src/robot_status_relay_handler.cpp.s
 
 src/utils.o: src/utils.cpp.o
@@ -1152,8 +927,8 @@ src/utils.o: src/utils.cpp.o
 
 # target to build an object file
 src/utils.cpp.o:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/utils.cpp.o
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/utils.cpp.o
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/utils.cpp.o
 .PHONY : src/utils.cpp.o
 
 src/utils.i: src/utils.cpp.i
@@ -1162,8 +937,8 @@ src/utils.i: src/utils.cpp.i
 
 # target to preprocess a source file
 src/utils.cpp.i:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/utils.cpp.i
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/utils.cpp.i
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/utils.cpp.i
 .PHONY : src/utils.cpp.i
 
 src/utils.s: src/utils.cpp.s
@@ -1172,8 +947,8 @@ src/utils.s: src/utils.cpp.s
 
 # target to generate assembly for a file
 src/utils.cpp.s:
-	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/utils.cpp.s
 	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client_bswap.dir/src/utils.cpp.s
+	cd /home/yumi/yumi_ws/build && $(MAKE) -f industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/build.make industrial_driver/industrial_robot_client/CMakeFiles/industrial_robot_client.dir/src/utils.cpp.s
 .PHONY : src/utils.cpp.s
 
 test/utest.o: test/utest.cpp.o
@@ -1210,54 +985,39 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... list_install_components"
-	@echo "... industrial_robot_client"
-	@echo "... industrial_robot_client_dummy"
-	@echo "... robot_state"
-	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
-	@echo "... robot_state_bswap"
-	@echo "... run_tests_industrial_robot_client_roslaunch-check"
-	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... run_tests_industrial_robot_client_gtest"
-	@echo "... actionlib_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... edit_cache"
+	@echo "... test"
 	@echo "... _run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... actionlib_generate_messages_py"
 	@echo "... _run_tests_industrial_robot_client_roslaunch-check"
-	@echo "... sensor_msgs_generate_messages_nodejs"
+	@echo "... rebuild_cache"
+	@echo "... run_tests_industrial_robot_client_roslaunch-check"
+	@echo "... clean_test_results_industrial_robot_client"
+	@echo "... install"
+	@echo "... motion_streaming_interface"
+	@echo "... control_msgs_generate_messages_py"
+	@echo "... industrial_robot_client_bswap"
+	@echo "... robot_state_bswap"
+	@echo "... _run_tests_industrial_robot_client_gtest"
+	@echo "... run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml"
+	@echo "... industrial_robot_client"
+	@echo "... robot_state"
+	@echo "... industrial_robot_client_dummy"
+	@echo "... motion_streaming_interface_bswap"
+	@echo "... install/local"
 	@echo "... control_msgs_generate_messages_cpp"
-	@echo "... control_msgs_generate_messages_nodejs"
-	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... actionlib_generate_messages_lisp"
-	@echo "... actionlib_generate_messages_eus"
-	@echo "... actionlib_generate_messages_nodejs"
-	@echo "... actionlib_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... joint_trajectory_action"
 	@echo "... control_msgs_generate_messages_eus"
 	@echo "... run_tests_industrial_robot_client"
+	@echo "... run_tests_industrial_robot_client_gtest_utest_robot_client"
+	@echo "... control_msgs_generate_messages_nodejs"
 	@echo "... control_msgs_generate_messages_lisp"
 	@echo "... motion_download_interface_bswap"
-	@echo "... joint_trajectory_action"
-	@echo "... control_msgs_generate_messages_py"
-	@echo "... run_tests_industrial_robot_client_roslaunch-check_test_roslaunch_test.xml"
-	@echo "... industrial_robot_client_bswap"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... motion_streaming_interface"
-	@echo "... motion_download_interface"
-	@echo "... rebuild_cache"
-	@echo "... _run_tests_industrial_robot_client_gtest_utest_robot_client"
-	@echo "... motion_streaming_interface_bswap"
-	@echo "... install"
 	@echo "... utest_robot_client"
-	@echo "... _run_tests_industrial_robot_client"
 	@echo "... install/strip"
-	@echo "... _run_tests_industrial_robot_client_gtest"
-	@echo "... run_tests_industrial_robot_client_gtest_utest_robot_client"
-	@echo "... install/local"
-	@echo "... clean_test_results_industrial_robot_client"
-	@echo "... test"
-	@echo "... edit_cache"
+	@echo "... _run_tests_industrial_robot_client"
+	@echo "... run_tests_industrial_robot_client_gtest"
+	@echo "... motion_download_interface"
+	@echo "... _run_tests_industrial_robot_client_gtest_utest_robot_client"
 	@echo "... industrial_robot_client_dummy.o"
 	@echo "... industrial_robot_client_dummy.i"
 	@echo "... industrial_robot_client_dummy.s"

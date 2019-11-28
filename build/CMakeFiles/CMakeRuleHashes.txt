@@ -92,6 +92,7 @@ f67e9954dc125be2ac0f968a1fe0695f /home/yumi/yumi_ws/devel/share/roseus/ros/indus
 ce2821300224b581268a2f24f2afc836 /home/yumi/yumi_ws/devel/share/roseus/ros/industrial_msgs/srv/SetRemoteLoggerLevel.l
 50e79c04d392687eba773077761ac17f /home/yumi/yumi_ws/devel/share/roseus/ros/industrial_msgs/srv/StartMotion.l
 bf5d059da4eef1f080668aff7326ccae /home/yumi/yumi_ws/devel/share/roseus/ros/industrial_msgs/srv/StopMotion.l
+ebebab51c666a1eacfa6f71bc8169de0 /home/yumi/yumi_ws/devel/share/roseus/ros/kinect2_viewer/manifest.l
 74572d9d0e73abf7b400f478b111ddf4 /home/yumi/yumi_ws/devel/share/roseus/ros/yumi_hw/manifest.l
 dcc58198d3a9d98d1b1515d91a32efeb /home/yumi/yumi_ws/devel/share/roseus/ros/yumi_hw/srv/YumiGrasp.l
 33a3de94185e99c175d8a2d6f4e3cde7 /home/yumi/yumi_ws/devel/share/roseus/ros/yumi_scripts/manifest.l
