@@ -351,7 +351,7 @@ def main():
         print "============ Press `Enter` to execute a arm movement using a pose goal ..."
         raw_input()
         yumi.echo_robot_pose()
-        # yumi.echo_robot_joint()
+        yumi.echo_robot_joint()
         # yumi.echo_neuron_pose()
         # yumi.log_robot_pose()
         # yumi.log_neuron_pose()

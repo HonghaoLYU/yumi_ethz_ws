@@ -243,7 +243,7 @@ Visualization Manager:
         Goal State Color: 255; 30; 10
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
-        Planning Group: both_arms
+        Planning Group: right_arm
         Query Goal State: true
         Query Start State: false
         Show Workspace: false
@@ -408,126 +408,6 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        Head:
-          Value: true
-        Hips:
-          Value: true
-        LeftArm:
-          Value: true
-        LeftFoot:
-          Value: true
-        LeftForeArm:
-          Value: true
-        LeftHand:
-          Value: true
-        LeftHandIndex1:
-          Value: true
-        LeftHandIndex2:
-          Value: true
-        LeftHandIndex3:
-          Value: true
-        LeftHandMiddle1:
-          Value: true
-        LeftHandMiddle2:
-          Value: true
-        LeftHandMiddle3:
-          Value: true
-        LeftHandPinky1:
-          Value: true
-        LeftHandPinky2:
-          Value: true
-        LeftHandPinky3:
-          Value: true
-        LeftHandRing1:
-          Value: true
-        LeftHandRing2:
-          Value: true
-        LeftHandRing3:
-          Value: true
-        LeftHandThumb1:
-          Value: true
-        LeftHandThumb2:
-          Value: true
-        LeftHandThumb3:
-          Value: true
-        LeftInHandIndex:
-          Value: true
-        LeftInHandMiddle:
-          Value: true
-        LeftInHandPinky:
-          Value: true
-        LeftInHandRing:
-          Value: true
-        LeftLeg:
-          Value: true
-        LeftShoulder:
-          Value: true
-        LeftUpLeg:
-          Value: true
-        Neck:
-          Value: true
-        RightArm:
-          Value: true
-        RightFoot:
-          Value: true
-        RightForeArm:
-          Value: true
-        RightHand:
-          Value: true
-        RightHandIndex1:
-          Value: true
-        RightHandIndex2:
-          Value: true
-        RightHandIndex3:
-          Value: true
-        RightHandMiddle1:
-          Value: true
-        RightHandMiddle2:
-          Value: true
-        RightHandMiddle3:
-          Value: true
-        RightHandPinky1:
-          Value: true
-        RightHandPinky2:
-          Value: true
-        RightHandPinky3:
-          Value: true
-        RightHandRing1:
-          Value: true
-        RightHandRing2:
-          Value: true
-        RightHandRing3:
-          Value: true
-        RightHandThumb1:
-          Value: true
-        RightHandThumb2:
-          Value: true
-        RightHandThumb3:
-          Value: true
-        RightInHandIndex:
-          Value: true
-        RightInHandMiddle:
-          Value: true
-        RightInHandPinky:
-          Value: true
-        RightInHandRing:
-          Value: true
-        RightLeg:
-          Value: true
-        RightShoulder:
-          Value: true
-        RightUpLeg:
-          Value: true
-        Spine:
-          Value: true
-        Spine1:
-          Value: true
-        Spine2:
-          Value: true
-        Spine3:
-          Value: true
-        WorldPerceptionNeuron:
-          Value: true
         box:
           Value: false
         gripper_l_base:
@@ -552,8 +432,6 @@ Visualization Manager:
           Value: false
         workspace:
           Value: false
-        world:
-          Value: true
         yumi_body:
           Value: false
         yumi_link_1_l:
@@ -683,7 +561,7 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002ad000003dafc0200000007fb0000000800480065006c00700000000342000000bb0000007300fffffffb0000000a0056006900650077007300000003b0000000b0000000ad00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fc00000028000001cd0000000000fffffffa000000010100000002fb000000100044006900730070006c0061007900730000000000ffffffff0000016a00fffffffb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000000000002b10000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c006900640065007200000000280000004a0000004a00fffffffb000000100044006900730070006c006100790073010000002800000246000000d700fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000002740000018e0000018300ffffff0000048c000003da00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002ad000003dafc0200000007fb0000000800480065006c00700000000342000000bb0000007300fffffffb0000000a0056006900650077007300000003b0000000b0000000ad00fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fc00000028000001cd0000000000fffffffa000000010100000002fb000000100044006900730070006c0061007900730000000000ffffffff0000016a00fffffffb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000000000002b10000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c006900640065007200000000280000004a0000004a00fffffffb000000100044006900730070006c006100790073010000002800000246000000d700fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000002740000018e0000018e00ffffff0000048c000003da00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1855

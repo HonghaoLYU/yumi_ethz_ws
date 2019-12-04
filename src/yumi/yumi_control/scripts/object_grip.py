@@ -15,6 +15,7 @@ from moveit_msgs.msg import JointConstraint, OrientationConstraint, PositionCons
 from moveit_commander.conversions import pose_to_list
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 from geometry_msgs.msg import PoseStamped, Pose2D
+from joint_state import return_joint_state
 
 # 全局变量定义以及赋值
 obj_x = 0
@@ -163,8 +164,10 @@ class MoveGroupPythonInteface(object):
         pose_goal.orientation.y = -0.51968635394
         pose_goal.orientation.z = -0.493376168521
         pose_goal.orientation.w = 0.496041497558
-        pose_goal.position.x = 0.565385604645 - obj_y*1.875/1000
-        pose_goal.position.y = -0.272377808388 - obj_x*1.875/1000
+        # pose_goal.position.y = 0.0244387395252 + (-0.595877665686-0.0244387395252)*obj_x/320
+        # pose_goal.position.x = 0.625989932306 + (0.197518221397-0.625989932306)*obj_y/240
+        pose_goal.position.x = 0.197518221397 + (240-obj_y)*(0.625989932306-0.197518221397)/240
+        pose_goal.position.y = obj_x*(-0.595877665686-0.0244387395252)/320 + 0.0244387395252
         pose_goal.position.z = 0.0942404372508
         right_arm.set_pose_target(pose_goal)
         print "End effector pose %s" % pose_goal
@@ -179,7 +182,26 @@ class MoveGroupPythonInteface(object):
         # 确保没有剩余未完成动作在执行
         right_arm.stop()
 
-    def right_arm_go_to_stay_goal(self):
+    def right_arm_go_to_stay_goal(self, jointnum):
+        # 设置动作对象变量,此处为right_arm
+        right_arm = self.right_arm
+        # 获取当前末端执行器位置姿态
+        right_joint_goal = right_arm.get_current_joint_values()
+        # 设置末端关节目标值
+        armnum = 'right_arm'
+        right_joint_goal[0] = return_joint_state(armnum,jointnum)[0]
+        right_joint_goal[1] = return_joint_state(armnum,jointnum)[1]
+        right_joint_goal[2] = return_joint_state(armnum,jointnum)[2]
+        right_joint_goal[3] = return_joint_state(armnum,jointnum)[3]
+        right_joint_goal[4] = return_joint_state(armnum,jointnum)[4]
+        right_joint_goal[5] = return_joint_state(armnum,jointnum)[5]
+        right_joint_goal[6] = return_joint_state(armnum,jointnum)[6]
+        print "End effector joint goal %s" % right_joint_goal
+        # 规划并执行路径动作
+        right_arm.go(right_joint_goal, wait=False)
+        right_arm.stop()
+
+    def right_arm_go_down_goal(self):
         # 设置动作对象变量,此处为arm
         right_arm = self.right_arm
 
@@ -200,13 +222,7 @@ class MoveGroupPythonInteface(object):
         right_arm.set_path_constraints(consts)
 
         # 设置动作对象目标位置姿态
-        pose_goal.orientation.x = 0.490355873386
-        pose_goal.orientation.y = -0.51968635394
-        pose_goal.orientation.z = -0.493376168521
-        pose_goal.orientation.w = 0.496041497558
-        pose_goal.position.x = 0.110881182799
-        pose_goal.position.y = -0.470314985941
-        pose_goal.position.z = 0.255106849128
+        pose_goal.position.z = 0.0542404372508
         right_arm.set_pose_target(pose_goal)
         print "End effector pose %s" % pose_goal
 
@@ -232,8 +248,8 @@ class MoveGroupPythonInteface(object):
         pose_goal.orientation.y = Left_Quy
         pose_goal.orientation.z = Left_Quz
         pose_goal.orientation.w = Left_Quw
-        pose_goal.position.x = 0.26832 + obj_x/1000
-        pose_goal.position.y = -0.37558 + obj_y/1000
+        pose_goal.position.y = -(-0.595877665686-0.0244387395252)*obj_x/320
+        pose_goal.position.x = -(0.197518221397-0.625989932306)*obj_y/240
         pose_goal.position.z = 0
         left_arm.set_pose_target(pose_goal)
         print "End effector pose %s" % pose_goal
@@ -329,9 +345,17 @@ def main():
 
     while 1:
         raw_input()
-        yumi.right_arm_go_to_pose_goal()
+        yumi.right_arm_go_to_stay_goal(0)
         raw_input()
-        yumi.right_arm_go_to_stay_goal()
+        yumi.right_arm_go_to_pose_goal()
+        # raw_input()
+        # yumi.right_gripper_go_to_open_goal()
+        # raw_input()
+        # yumi.right_arm_go_down_goal()
+        # raw_input()
+        # yumi.right_gripper_go_to_close_goal()
+
+
 
 
             

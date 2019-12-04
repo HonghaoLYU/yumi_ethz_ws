@@ -30,14 +30,15 @@ class image_converter:
         
         ## 裁剪原始图片
         h, w, ch = cv_image.shape
-        img_trim = cv_image[200:440, 250:570]
+        img_trim = cv_image[240:400, 300:520]
 
         ## 滤波&转换色彩空间
-        img_blur1 = cv2.bilateralFilter(img_trim,9,75,75)
-        img_blur2 = cv2.blur(img_blur1, (5,5))
+        # img_blur1 = cv2.bilateralFilter(img_trim,9,75,75)
+        # img_blur2 = cv2.blur(img_blur1, (5,5))
+        img_blur2 = img_trim
         img_hsv = cv2.cvtColor(img_blur2, cv2.COLOR_BGR2HSV)
         #定义窗口名称
-        winName='Colors of the rainbow'
+        winName='img_specifiedColor'
         winNamebar='hsv'
         #定义滑动条回调函数，此处pass用作占位语句保持程序结构的完整性
         def nothing(x):
