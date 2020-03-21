@@ -5,6 +5,7 @@
 import sys
 import rospy
 import time
+import copy
 import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
@@ -20,12 +21,14 @@ from joint_state import return_joint_state
 # 全局变量定义以及赋值
 obj_x = 0
 obj_y = 0
+obj_theta = 0
 
 # 定义回调函数,订阅接受到的消息传给data
 def Objpose_callback(data):
-    global obj_x, obj_y
+    global obj_x, obj_y, obj_theta
     obj_x = data.x
     obj_y = data.y
+    obj_theta = data.theta
 
 class MoveGroupPythonInteface(object):
     def __init__(self):
@@ -159,15 +162,23 @@ class MoveGroupPythonInteface(object):
         consts.joint_constraints = [right_joint_const]
         right_arm.set_path_constraints(consts)
 
+        # 计算夹取姿态
+        if obj_theta <= 0 :
+            (Qux, Quy, Quz, Quw) = quaternion_from_euler(90.01/180*pi, 0, (-180 - obj_theta)/180*pi)
+        else:
+            (Qux, Quy, Quz, Quw) = quaternion_from_euler(90.01/180*pi, 0, (180 - obj_theta)/180*pi)
+
+        # (Qux, Quy, Quz, Quw) = quaternion_from_euler(90/180*pi, 0, -180/180*pi)
+
         # 设置动作对象目标位置姿态
-        pose_goal.orientation.x = 0.490355873386
-        pose_goal.orientation.y = -0.51968635394
-        pose_goal.orientation.z = -0.493376168521
-        pose_goal.orientation.w = 0.496041497558
+        pose_goal.orientation.x = Qux
+        pose_goal.orientation.y = Quy
+        pose_goal.orientation.z = Quz
+        pose_goal.orientation.w = Quw
         # pose_goal.position.y = 0.0244387395252 + (-0.595877665686-0.0244387395252)*obj_x/320
         # pose_goal.position.x = 0.625989932306 + (0.197518221397-0.625989932306)*obj_y/240
-        pose_goal.position.x = 0.197518221397 + (240-obj_y)*(0.625989932306-0.197518221397)/240
-        pose_goal.position.y = obj_x*(-0.595877665686-0.0244387395252)/320 + 0.0244387395252
+        pose_goal.position.x = 0.1819576873 + (160-obj_y)*(0.494596343128-0.1819576873)/160
+        pose_goal.position.y = obj_x*(-0.455644324437+0.0238434066464)/220 -0.0238434066464
         pose_goal.position.z = 0.0942404372508
         right_arm.set_pose_target(pose_goal)
         print "End effector pose %s" % pose_goal
@@ -205,8 +216,13 @@ class MoveGroupPythonInteface(object):
         # 设置动作对象变量,此处为arm
         right_arm = self.right_arm
 
+        waypoints = []
+
         # 获取当前末端执行器位置姿态
         pose_goal = right_arm.get_current_pose().pose
+
+        # 添加路径起始点
+        waypoints.append(copy.deepcopy(pose_goal))
 
         # 限制末端夹具运动
         right_joint_const = JointConstraint()
@@ -214,7 +230,7 @@ class MoveGroupPythonInteface(object):
         # if Rightfinger > -55 :
         #     right_joint_const.position = 0.024
         # else:
-        right_joint_const.position = 0
+        right_joint_const.position = 0.0239
         right_joint_const.weight = 1.0
         # 施加全约束
         consts = Constraints()
@@ -222,19 +238,34 @@ class MoveGroupPythonInteface(object):
         right_arm.set_path_constraints(consts)
 
         # 设置动作对象目标位置姿态
-        pose_goal.position.z = 0.0542404372508
-        right_arm.set_pose_target(pose_goal)
-        print "End effector pose %s" % pose_goal
+        pose_goal.position.z = pose_goal.position.z - 0.045
+        # pose_goal.position.y = pose_goal.position.y - 0.1
+
+        # 添加路径末端点
+        waypoints.append(copy.deepcopy(pose_goal))
+
+        # 路径规划
+        (plan, fraction) = right_arm.compute_cartesian_path(
+            waypoints,  # waypoints to follow
+            0.01,  # eef_step
+            0.0)  # jump_threshold
+
+        print "End effector pose %s" % waypoints
+
+        # robot = self.robot
+        # display_trajectory_publisher = self.display_trajectory_publisher
+
+        # display_trajectory = moveit_msgs.msg.DisplayTrajectory()
+        # display_trajectory.trajectory_start = robot.get_current_state()
+        # display_trajectory.trajectory.append(plan)
+        # display_trajectory_publisher.publish(display_trajectory)
 
         # 规划和输出动作
-        traj = right_arm.plan()
-        right_arm.execute(traj, wait=False)
-        # 动作完成后清除目标信息
-        right_arm.clear_pose_targets()
+        right_arm.execute(plan, wait=False)
         # 清除路径约束
-        right_arm.clear_path_constraints()
+        # right_arm.clear_path_constraints()
         # 确保没有剩余未完成动作在执行
-        right_arm.stop()
+        # right_arm.stop()
 
     def left_arm_go_to_pose_goal(self):
         # 设置动作对象变量,此处为arm
@@ -348,12 +379,12 @@ def main():
         yumi.right_arm_go_to_stay_goal(0)
         raw_input()
         yumi.right_arm_go_to_pose_goal()
-        # raw_input()
-        # yumi.right_gripper_go_to_open_goal()
+        raw_input()
+        yumi.right_gripper_go_to_open_goal()
         # raw_input()
         # yumi.right_arm_go_down_goal()
-        # raw_input()
-        # yumi.right_gripper_go_to_close_goal()
+        raw_input()
+        yumi.right_gripper_go_to_close_goal()
 
 
 

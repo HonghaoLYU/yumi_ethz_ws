@@ -17,6 +17,7 @@ from std_msgs.msg import Float64MultiArray
 from datamessage.msg import bend
 from moveit_commander.conversions import pose_to_list
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
+import numpy as np
 
 
 # 全局变量定义以及赋值
@@ -103,17 +104,20 @@ class MoveGroupPythonInteface(object):
         both_arms = self.both_arms
         # 获取当前末端执行器位置姿态和四元数
         right_pose_goal = both_arms.get_current_pose(end_effector_link="gripper_r_finger_r")
-        left_pose_goal = both_arms.get_current_pose(end_effector_link="gripper_l_finger_r")
+        # left_pose_goal = both_arms.get_current_pose(end_effector_link="gripper_l_finger_r")
         # 获取当前末端执行器位置欧拉角
         right_rpy = both_arms.get_current_rpy(end_effector_link="gripper_r_finger_r")
-        left_rpy = both_arms.get_current_rpy(end_effector_link="gripper_l_finger_r")
+        # left_rpy = both_arms.get_current_rpy(end_effector_link="gripper_l_finger_r")
         # 打印输出
         print "YuMi末端执行器四元数 %s"
         print right_pose_goal
-        print left_pose_goal
-        print "YuMi末端执行器欧拉角(度) %s"
-        print right_rpy
-        print left_rpy
+        # print left_pose_goal
+        print "YuMi末端执行器rpy角(度) %s"
+        print np.array(right_rpy)/pi*180
+        # print left_rpy
+        print "YuMi末端执行器Euler角(度) %s"
+        print np.array(euler_from_quaternion([right_pose_goal.pose.orientation.x, right_pose_goal.pose.orientation.y,right_pose_goal.pose.orientation.z, right_pose_goal.pose.orientation.w]))/pi*180
+        # print left_rpy
         # 清除目标信息
         both_arms.clear_pose_targets()
 
@@ -349,14 +353,16 @@ def main():
         count = count + 1
         # 显示及记录
         print "============ Press `Enter` to execute a arm movement using a pose goal ..."
-        raw_input()
+        # raw_input()
         yumi.echo_robot_pose()
-        yumi.echo_robot_joint()
+        # yumi.echo_robot_joint()
         # yumi.echo_neuron_pose()
         # yumi.log_robot_pose()
         # yumi.log_neuron_pose()
         # yumi.log_robot_joint()
         # wbk.save('test2.xls')
+        print quaternion_from_euler(180/180*pi, 0, -90/180*pi)
+        print quaternion_from_euler(0/180*pi, 180/180*pi, 90/180*pi)
 
 
 if __name__ == '__main__':
